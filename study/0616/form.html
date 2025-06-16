@@ -53,6 +53,95 @@
           <label for="mail">메일 주소</label>
           <input type="text" id="mail" name="mail" placeholder="메일을 입력해주세요." />
         </li>
+        <li>
+          <label for="subscribe">
+            <input type="checkbox" id="subscribe" name="subscribe" />
+            구독하기
+          </label>
+          <label for="subscribe">
+            <input type="checkbox" id="subscribe" name="subscribe" />
+            구독하기2
+          </label>
+          <label for="subscribe">
+            <input type="checkbox" id="subscribe" name="subscribe" />
+            구독하기3
+          </label>
+        </li>
+
+        <li>
+          <label><input type="radio" name="gender" />남자</label>
+          <label><input type="radio" name="gender" />여자</label>
+          <label><input type="radio" name="gender" />여자1</label>
+          <label><input type="radio" name="gender" />여자2</label>
+        </li>
+
+        <li>
+          <input type="file" name="file" />
+        </li>
+
+        <li>
+          <input type="date" name="date" />
+        </li>
+
+        <li>
+          <input type="range" name="range" min="0" max="120">
+        </li>
+
+        <li>
+          <input type="color" name="color" />
+        </li>
+
+        <li>
+          <label for="country">Select your country</label>
+          <select name="country" id="country">
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">UK</option>
+          </select>
+        </li>
+
+        <li>
+          <label for="message">Your message:</label>
+          <textarea 
+            name="message" id="message"
+            rows="5"
+            cols="50"
+            placeholder="Enter your message here">
+          </textarea>
+        </li>
+        <li>
+          <button type="submit">Submit</button>
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+
+  <form action="">
+    <fieldset>
+      <legend>Contact</legend>
+      <ul>
+        <li>
+          <label for="name">Name : </label>
+          <input type="text" id="name" name="name" />
+        </li>
+        <br />
+        <li>
+          <label for="email">E-mail : </label>
+          <input type="text" id="email" name="email" />
+        </li>
+        <br />
+        <li>
+          <label for="message">Message : </label>
+          <textarea 
+            name="message" id="message"
+            rows="5"
+            cols="50"
+            >
+          </textarea>
+        </li>
+        <div style="text-align: center;">
+          <button type="submit">Send Your Message</button>
+        </div>
       </ul>
     </fieldset>
   </form>
