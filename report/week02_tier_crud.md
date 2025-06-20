@@ -40,9 +40,11 @@
 
 - 문제점 1) 양수의 0과 음수의 0이 둘 다 존재함
 - 컴퓨터에서 이 수가 0인지 아닌지를 확인할 때 +0인지 -0인지를 두 번이나 비교를 해야 합니다.
+  
 ![MSE_Problem1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcazKyB%2Fbtrp17fgUCV%2FFI7FKxbm2cDyRId9dGCqZk%2Fimg.png)
 
 - 부호 절댓값 방식에선 4+(-7)은 아래와 같이 -(7-4)로 계산해야 합니다.
+  
 ![MSE_Problem2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fba5W2m%2Fbtrp08lcHml%2FNxMiEIbFL7YYyOt6ZL4oPk%2Fimg.png)
 
 ---
@@ -54,10 +56,13 @@
 
 ![Ones1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FNP59z%2FbtrpVvWwJPV%2FKLsvPFIOjWp9pvYO8iasK1%2Fimg.png)
 
+
 ![Ones2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FDxVAI%2FbtrpWyyFWha%2F9zTkVMTYvSZYd7K5TXE5hK%2Fimg.png)
+
 
 - 연산 시 캐리가 발생했을 때는 추가적인 연산이 필요함.
 - 캐리는 최상위 비트(MSB)에서 그 위의 비트로 자리올림이 발생하는 것을 의미
+  
 ![Ones3](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbPe2Mw%2Fbtrp2DyvD4U%2FXlfE7UVRTDuk2QIdMBm19k%2Fimg.png)
 
 #### ✅ 예시
