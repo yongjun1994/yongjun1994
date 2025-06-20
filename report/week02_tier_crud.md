@@ -42,6 +42,8 @@
 
 # CSS Box Model
 
+![CSS Box Model](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*eofyOWN5RYXmLGbiooBM7Q.png)
+
 ## 개념 설명
 
 HTML 요소는 박스(Box) 형태로 구성됩니다.  
