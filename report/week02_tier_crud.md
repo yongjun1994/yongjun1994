@@ -1,258 +1,91 @@
-# 컴퓨터 공학 이론과제: 데이터 표현 방식(이진수, 정수/실수 표현 방식)
-
-# 🧮 데이터 표현 방식 정리
+# 🏗️ 3계층 구조와 CRUD 작동 흐름
 
 ---
 
-## 1. 이진수 (Binary Number)
+## 📌 1. 3-Tier Architecture (3계층 아키텍처)
 
-| 항목       | 설명                                                                 |
-|------------|----------------------------------------------------------------------|
-| 정의       | 컴퓨터는 전기 신호를 이용해 `0`과 `1` 두 상태로만 정보를 표현합니다.        |
-| 특징       | `0`과 `1`로만 구성된 2진수(Binary) 체계를 사용합니다.                        |
-| 활용       | 모든 데이터(숫자, 문자, 이미지 등)는 내부적으로 이진수로 변환되어 처리됩니다. |
-| 변환 예시  | 10진수 `5` → 2진수 `101`<br>10진수 `13` → 2진수 `1101`                         |
+3-Tier Architecture는 소프트웨어 시스템을 **3개의 독립적인 계층**으로 나누어 구성하는 구조입니다. 이는 **유지보수 용이성**, **확장성**, **역할 분리** 등을 목적으로 많이 사용됩니다.
 
----
+### 🔧 구성 계층
 
-## 2. 정수 표현 방식
+| 계층 이름 | 설명 | 주요 역할 |
+|-----------|------|------------|
+| 1️⃣ Presentation Layer (프레젠테이션 계층) | 사용자 인터페이스(UI)를 담당하는 계층 | - 사용자의 입력을 수집<br>- 결과 화면을 출력<br>- 보통 HTML/CSS, React, JSP 등 사용 |
+| 2️⃣ Business Logic Layer (비즈니스 로직 계층) | 실제 로직을 처리하는 계층 | - 요청 처리<br>- 데이터 검증<br>- 트랜잭션 관리<br>- Java(Spring), C#, Python 등 |
+| 3️⃣ Data Access Layer (데이터 계층) | 데이터베이스와 연결되는 계층 | - DB CRUD 처리<br>- SQL 실행<br>- JDBC, JPA, MyBatis 등 사용 |
 
-정수를 컴퓨터에 저장할 때, 특히 **음수를 표현하기 위한 방법**으로 다음 세 가지 방식이 사용됩니다.
-
----
-
-### (1) **부호와 절대값 방식 (Sign and Magnitude)**
-
-- 가장 왼쪽 비트(MSB)를 **부호 비트**로 사용
-  - `0`: 양수, `1`: 음수
-- 나머지 비트는 절대값을 2진수로 표현
-
-![MSB_example](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FozixR%2Fbtrp0Zon50b%2FenrVSxklJV8ulQWiTlehG0%2Fimg.png)
-
-#### ✅ 예시 (8비트 기준)
-
-| 값   | 이진수 표현    |
-|------|----------------|
-| +5   | `00000101`     |
-| -5   | `10000101`     |
-
-> ❗ **문제점**: `+0`과 `-0`이 존재하며, 덧셈/뺄셈 연산이 복잡합니다.
-
-- 문제점 1) 양수의 0과 음수의 0이 둘 다 존재함
-- 컴퓨터에서 이 수가 0인지 아닌지를 확인할 때 +0인지 -0인지를 두 번이나 비교를 해야 합니다.
-  
-![MSE_Problem1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcazKyB%2Fbtrp17fgUCV%2FFI7FKxbm2cDyRId9dGCqZk%2Fimg.png)
-
-- 부호 절댓값 방식에선 4+(-7)은 아래와 같이 -(7-4)로 계산해야 합니다.
-  
-![MSE_Problem2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fba5W2m%2Fbtrp08lcHml%2FNxMiEIbFL7YYyOt6ZL4oPk%2Fimg.png)
+> ✅ **역할 분리** 덕분에 각 계층을 독립적으로 개발하고 유지보수할 수 있음.
 
 ---
 
-### (2) **1의 보수 방식 (One's Complement)**
+## 🔁 2. CRUD 개념
 
-- 양수의 모든 비트를 반전시켜 음수로 표현 (0 ↔ 1)
-- 부호 비트는 여전히 MSB
+**CRUD**는 데이터에 대해 할 수 있는 기본적인 4가지 작업을 의미합니다.
 
-![Ones1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FNP59z%2FbtrpVvWwJPV%2FKLsvPFIOjWp9pvYO8iasK1%2Fimg.png)
-
-
-![Ones2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FDxVAI%2FbtrpWyyFWha%2F9zTkVMTYvSZYd7K5TXE5hK%2Fimg.png)
-
-
-- 연산 시 캐리가 발생했을 때는 추가적인 연산이 필요함.
-- 캐리는 최상위 비트(MSB)에서 그 위의 비트로 자리올림이 발생하는 것을 의미
-  
-![Ones3](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbPe2Mw%2Fbtrp2DyvD4U%2FXlfE7UVRTDuk2QIdMBm19k%2Fimg.png)
-
-#### ✅ 예시
-
-| 값   | 이진수 표현    |
-|------|----------------|
-| +5   | `00000101`     |
-| -5   | `11111010`     |
-
-> ❗ **문제점**: `+0`과 `-0`이 존재하고, **덧셈 시 자리 올림 처리**가 필요합니다.
+| 작업 | 의미 | HTTP 메서드 | SQL |
+|------|------|--------------|------|
+| Create | 데이터 생성 | POST | INSERT |
+| Read | 데이터 조회 | GET | SELECT |
+| Update | 데이터 수정 | PUT / PATCH | UPDATE |
+| Delete | 데이터 삭제 | DELETE | DELETE |
 
 ---
 
-### (3) **2의 보수 방식 (Two's Complement)**
+## 🌐 3. CRUD 웹 흐름 예시
 
-- **1의 보수 + 1**로 음수를 표현
-- 현재 대부분의 컴퓨터 시스템에서 사용
+예를 들어, 게시판 웹 애플리케이션에서 "게시글 작성" 흐름을 생각해 봅시다.
 
-[Two1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbXZYsj%2FbtrpUGRMTwP%2Fk9NQ6AQ8AQGevVAzdQOXuK%2Fimg.png)
+### 게시글 작성 흐름 (Create 예시)
 
-- 2의 보수를 이용해 4와 -7을 서로 더하면 아래와 같음.
+1. **사용자 입력 (Presentation Layer)**
+   - 사용자가 글 작성 폼에 제목, 내용을 입력하고 [작성] 버튼 클릭
 
-[Two2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcaSsnJ%2FbtrpYmEOBDF%2FRH6tHq5QJLl9PbgwSaHdg0%2Fimg.png)
+2. **서버 요청 전송**
+   - 브라우저에서 POST 요청 (예: `/post/write`) 전송
 
-#### ✅ 예시
+3. **비즈니스 로직 처리 (Business Logic Layer)**
+   - 컨트롤러가 요청을 받아 Service로 전달
+   - Service는 글 내용을 검증한 후 DAO에 저장 요청
 
-| 값   | 이진수 표현    |
-|------|----------------|
-| +5   | `00000101`     |
-| -5   | `11111011`     |
+4. **데이터 저장 (Data Access Layer)**
+   - DAO에서 INSERT SQL 실행하여 DB에 저장
 
-> ✅ **장점**: 0이 하나만 존재하며, 덧셈/뺄셈 연산이 단순하고 효율적입니다.
-
----
-
-## 🧾 실수의 표현 방식
-
-컴퓨터에서 실수를 표현하는 방식은 정수보다 훨씬 더 복잡합니다.  
-그 이유는 컴퓨터가 모든 수를 **2진수**로 표현해야 하며, 실수는 정수와 달리 소수점 이하의 값까지 표현해야 하기 때문입니다.
-
-이를 해결하기 위해 컴퓨터에서는 아래 두 가지 방식이 사용됩니다:
-
-1. 고정 소수점 (Fixed Point) 방식  
-2. 부동 소수점 (Floating Point) 방식
+5. **응답 반환**
+   - 저장 완료 후, 성공 메시지 또는 게시글 목록 페이지로 리다이렉트
 
 ---
 
-## 1️⃣ 고정 소수점 (Fixed Point) 방식
+## 🔄 CRUD 전체 흐름 요약 다이어그램
 
-### ✅ 개념
+```text
 
-- 실수는 보통 정수부와 소수부로 나뉘어 표현됩니다.
-- 고정 소수점 방식은 **소수부의 자릿수를 미리 정해** 놓고, 그 범위 안에서 실수를 표현하는 방식입니다.
+// 📍 Controller 계층: 클라이언트 요청을 받아 처리하는 입구 역할
+@PostMapping("/post/write") // HTTP POST 요청이 "/post/write"로 들어오면 아래 메서드 실행
+public String createPost(PostDto postDto) {
+    postService.save(postDto); // 사용자가 보낸 데이터(postDto)를 Service 계층으로 전달
+    return "redirect:/post/list"; // 처리 후 게시글 목록 페이지로 리다이렉트 (웹 흐름 전환)
+}
 
-예를 들어, 32비트 고정 소수점 표현이라면 다음과 같이 구성될 수 있습니다:
+// 📍 Service 계층: 핵심 비즈니스 로직을 처리하는 중간 관리자
+public void save(PostDto dto) {
+    postRepository.save(dto.toEntity()); 
+    // DTO(Data Transfer Object)를 엔티티(Post 객체)로 변환한 뒤 Repository에 저장 요청
+}
 
-| 구성       | 비트 수  |
-|------------|----------|
-| 부호 비트   | 1비트     |
-| 정수부     | 15비트    |
-| 소수부     | 16비트    |
-| **총합**   | **32비트** |
+// 📍 Repository 계층 (DAO): 실제 데이터베이스에 접근하여 데이터 처리
+public void save(Post post) {
+    jdbcTemplate.update("INSERT INTO post (title, content) VALUES (?, ?)",
+                        post.getTitle(), post.getContent()); 
+    // JDBC를 사용하여 SQL INSERT 쿼리를 실행. 사용자가 작성한 제목과 내용을 DB에 저장
+}
 
+## 🔁 전체 흐름 요약
+사용자가 글쓰기 폼을 제출 (HTML or React form)
 
-### 📉 단점
+Controller가 POST 요청을 받아 PostDto 객체로 변환
 
-- **정수부와 소수부의 비트 수가 고정**되어 있어,
-- 표현할 수 있는 값의 **범위가 제한**되고 **유연성이 부족**합니다.
-- 큰 값 또는 매우 작은 소수 값을 동시에 표현하기 어렵습니다.
+Service가 DTO를 도메인 객체(Post)로 변환 후 저장 요청
 
----
+Repository에서 SQL을 실행하여 DB에 저장
 
-## ✅ 요약
-
-| 구분             | 고정 소수점 (Fixed Point) |
-|------------------|----------------------------|
-| 자릿수 구조       | 정수부와 소수부를 고정 분할 |
-| 계산 속도         | 빠름                        |
-| 표현 범위         | 좁음                        |
-| 사용 예           | 임베디드 시스템, DSP 등     |
-
-# 🌊 부동 소수점 (Floating Point) 방식
-
----
-
-## ✅ 개념
-
-부동 소수점 방식은 **소수점의 위치가 고정되어 있지 않고(floating)**, 숫자의 **크기에 따라 지수(Exponent)**를 조절해 **더 넓은 범위의 실수**를 표현할 수 있는 방법입니다.
-
-정수부, 소수부를 고정하지 않고 지수를 통해 소수점을 이동시켜 표현하는 방식이며,  
-**과학적 표기법**을 이진수에 적용한 형태로 볼 수 있습니다.
-
-> 예:  
-> 10진수 `3.14` → 과학적 표기법 `3.14 × 10^0`  
-> 10진수 `0.0000314` → `3.14 × 10^-5`
-
-→ 부동 소수점은 이 개념을 **이진수 기반**으로 확장한 것입니다.
-
----
-
-## 🔢 표현 공식 (IEEE 754 기반)
-
-IEEE 754 부동소수점 방식은 실수를 다음 수식으로 표현합니다:
-
-\[
-(-1)^S \times 1.M \times 2^{(E - Bias)}
-\]
-
-| 항목   | 의미                              |
-|--------|-----------------------------------|
-| `S`    | 부호 비트 (Sign bit)              |
-| `M`    | 가수부(Mantissa), 소수점 이하 부분 |
-| `E`    | 지수부 (Exponent)                 |
-| `Bias` | float는 127, double은 1023         |
-
----
-
-## 📐 IEEE 754 구조 (32비트 float 기준)
-
-| 필드       | 비트 수 | 설명                                               |
-|------------|---------|----------------------------------------------------|
-| 부호(S)     | 1비트   | `0` = 양수, `1` = 음수                             |
-| 지수(E)     | 8비트   | 실제 지수 + Bias(127)로 저장됨                   |
-| 가수(M)     | 23비트  | 정규화된 실수의 소수부 (1.은 생략됨)              |
-
-
----
-
-## ⚠️ 장점 vs 단점
-
-| 항목     | 장점                                                  | 단점                                                   |
-|----------|-------------------------------------------------------|--------------------------------------------------------|
-| 표현 범위 | 매우 넓음 (작은 수 ~ 매우 큰 수)                     | 일부 수는 근사치로만 표현 가능 (정밀도 손실)           |
-| 연산 속도 | 고정 소수점보다 느릴 수 있음                          | 연산 복잡도 증가, 오차 발생 가능                       |
-| 활용 예   | 과학 계산, 그래픽 처리, 머신러닝, 물리 시뮬레이션 등 | 정밀한 금융 계산 등에는 부적합한 경우도 있음           |
-
----
-
-## ✅ 고정 vs 부동 소수점 비교 요약
-
-| 비교 항목      | 고정 소수점 (Fixed Point)  | 부동 소수점 (Floating Point) |
-|----------------|-----------------------------|-------------------------------|
-| 소수점 위치     | 고정                        | 지수(E)에 따라 이동 가능     |
-| 표현 범위       | 작음                        | 매우 넓음                     |
-| 정밀도 손실     | 거의 없음                   | 발생 가능                     |
-| 연산 속도       | 빠름                        | 느릴 수 있음                  |
-| 사용 예시       | 임베디드 시스템, DSP        | CPU, GPU, 과학계산 등         |
-
----
-
-# 웹 개발 이론과제 : CSS Box Model 개념 및 margin/padding 차이
-
-# CSS Box Model
-
-![CSS Box Model](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*eofyOWN5RYXmLGbiooBM7Q.png)
-
-## 개념 설명
-
-HTML 요소는 박스(Box) 형태로 구성됩니다.  
-CSS Box Model은 각 요소의 박스를 구성하는 다음 네 가지 영역으로 설명됩니다:
-
----
-
-## 구성 요소 차이
-
-| 구분     | 설명 |
-|----------|------|
-| `content` | 실제 내용이 들어가는 영역 (텍스트, 이미지 등) |
-| `padding` | content와 border 사이의 내부 여백 (배경색 포함됨) |
-| `border`  | 테두리 영역 (두께, 색상 등 설정 가능) |
-| `margin`  | 요소 간의 외부 여백 (다른 요소와의 거리 조정) |
-
-# 📏 CSS margin vs padding 비교 표
-
-| 항목 | `margin` (마진) | `padding` (패딩) |
-|------|------------------|-------------------|
-| 정의 | 요소의 **바깥 여백** | 요소의 **안쪽 여백** |
-| 위치 | 요소 외부에서 다른 요소와의 거리 조절 | 요소 내부에서 콘텐츠와 테두리 사이의 거리 조절 |
-| 배경색 영향 | ❌ 배경색 적용되지 않음 | ✅ 배경색이 패딩 영역까지 적용됨 |
-| 요소 간 겹침 | 마진은 서로 겹쳐질 수 있음 (`margin collapsing`) | 패딩은 겹치지 않음 |
-| 크기 계산 포함 여부 | 기본적으로 **box 크기에 포함되지 않음** | `box-sizing: border-box` 미사용 시 **포함되지 않음** |
-| 레이아웃 영향 | 요소 간 배치를 제어 | 콘텐츠 영역 확보에 사용됨 |
-| 상하/좌우 설정 | `margin-top`, `margin-right` 등 개별 설정 가능 | `padding-top`, `padding-left` 등 개별 설정 가능 |
-| 주 사용 목적 | 요소 간 간격 확보 | 콘텐츠와 테두리 간 거리 조절, 시각적 간격 부여 |
-| border와의 관계 | border 외부 | border 내부 |
-| 예시 코드 | `margin: 20px;` → 요소 주변 20px 간격 | `padding: 20px;` → 요소 내부에 20px 여백 |
-
----
-
-✅ 요약:  
-- `margin`: 바깥 여백 (요소 간 간격 조절)  
-- `padding`: 안쪽 여백 (내용과 테두리 사이 공간 확보)
-
+결과적으로 사용자는 게시글 목록 페이지로 이동
