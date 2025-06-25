@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 연습문제 모음</title>
+</head>
+<body>
+  <script>
+    // // 오늘 날짜 출력
+    // const now = new Date();
+
+    // console.log(now);
+
+    // // 특정 날짜 만들기
+    // const thatDay = new Date(2025, 5, 25);
+
+    // console.log(thatDay.toLocaleDateString());
+    // console.log(thatDay.getFullYear());
+    // console.log(thatDay.getMonth() + 1); // 월은 0부터 시작하므로 +1
+    // console.log(thatDay.getDate());
+
+    // // 연, 월, 일 분리 출력
+    // const year = thatDay.getFullYear();
+    // const month = thatDay.getMonth() + 1; // 월은 0부터 시작하므로 +1
+    // const date = thatDay.getDate(); // 일
+
+    // // 날짜 덧셈 (며칠 후 날짜 구하기)
+    // const daysToAdd = 7;
+    // const futureDate = new Date(thatDay);
+    // futureDate.setDate(thatDay.getDate() + daysToAdd);
+    // console.log(`7일 후 날짜: ${futureDate.toLocaleDateString()}`);
+    // // 두 날짜 간의 차이 (며칠 차이인지
+    // const today = new Date();
+    // const timeDiff = today - thatDay; // 밀리초 단위 차이
+    // const dayDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24)); // 밀리초를 일로 변환
+    // console.log(`오늘과 ${thatDay.toLocaleDateString()} 사이의 차이: ${dayDiff}일`);
+    
+    // // 요일 구하기
+    // const dayOfWeek = thatDay.getDay(); // 0: 일요일, 1: 월요일, ..., 6: 토요일
+    // const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+    // console.log(`그 날은 ${daysOfWeek[dayOfWeek]}요일입니다.`);
+
+    // // 본인의 정보를 담은 객체를 만들어 이름, 나이, 자기소개() 메서드를 출력해보세요
+    // const user = {
+    //   name: "홍길동",
+    //   age: 30,
+    //   introduce: function() {
+    //     return `안녕하세요, 저는 ${this.name}이고, 나이는 ${this.age}세입니다.`;
+    //   }
+    // }
+
+    // // 생성자 함수를 이용해 Book 객체 여러개 만들어보기
+    // function Book(title, author, year) {
+    //   this.title = title;
+    //   this.author = author;
+    //   this.year = year;
+    // }
+
+    // 인스턴스 생성
+    // 인스턴스를 생성하는 키워드 : new
+    const book1 = new Book("책1", "저자1", 2025);
+    const book2 = new Book("책2", "저자2", 2024);
+    const book3 = new Book("책3", "저자3", 2023);
+
+    // Date 객체를 활용해 오늘 날짜와 특정 날짜 간의 차이 계산하기
+    const now = new Date();
+    const thatDay = new Date("2024-11-11");
+
+    const diff = now.getTime() - thatDay.getTime(); // 밀리초 단위 차이
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24)); // 밀리초를 일로 변환
+
+    console.log(`${days}일 째 되는 날입니다.`);
+  </script>
+</body>
+</html>
