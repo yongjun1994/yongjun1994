@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제</title>
+</head>
+<body>
+  <script>
+    // let Book = {
+    //   title,
+    //   author,
+    //   year
+    // };
+
+    // Book = {
+    //   title,
+    //   author
+    // }
+
+    const book = {};
+
+    // 속성추가
+    book.title = "자바스크립트 입문";
+    book.author = "김작가";
+    book.year = "2025;"
+
+    // 속성 삭제
+    delete book.year;
+
+    // 출력
+    for (let key in book) {
+      console.log(`${key}: ${book[key]}`);
+    };
+
+    const product = {
+      id: 101,
+      name: "노트북",
+      price: 1200000
+    }
+
+    console.log(product["name"]);
+
+    for(let key in product) {
+      console.log(`key: ${key}, value: ${product[key]}`);
+    }
+  </script>
+</body>
+</html>

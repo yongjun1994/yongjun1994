@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기념일 계산기</title>
+</head>
+<body>
+  <script>
+    // 기념일 계산기
+    // const today = new Date();
+    // const birthday = new Date("1990-10-25");
+
+    // let diff = today.getTime() - birthday.getTime();
+    // let days = Math.floor(diff / (1000 * 60 * 60 *24));
+
+    // alert(`${days}일 째 되는 날입니다.`);
+
+    const now = new Date();
+    console.log(now);
+    console.log(now.getFullYear()); // 현재 연도
+    console.log(now.getMonth() + 1); // 현재 월 (0부터 시작하므로 +1 필요)
+    console.log(now.getDate()); // 현재 일
+    console.log(now.getHours()); // 현재 시
+
+    const d = new Date();
+
+    console.log(d.getFullYear()); // 현재 연도
+    console.log(d.getMonth()); // 현재 월
+    console.log(d.getDate()); // 현재 일
+    console.log(d.getDay()); // 현재 요일 (0: 일요일, 1 : 월요일, ..., 6: 토요일)
+    console.log(d.getHours());     // 시 (0~23)
+    console.log(d.getMinutes());   // 분 (0~59)
+    console.log(d.getSeconds());   // 초 (0~59)
+    console.log(d.getMilliseconds()); // 밀리초 (0~999)
+
+    // 날짜 및 시간 설정
+    d.setFullYear(2026);
+    d.setMonth(5);       // 6월
+    d.setDate(15);       // 15일
+
+    d.setHours(10);
+    d.setMinutes(30);
+
+    // 날짜 연산 (시간 더하기/빼기)
+    d.setDate(d.getDate() + 7);  // 7일 뒤
+    d.setMonth(d.getMonth() - 1); // 1개월 전
+
+    // 5. 날짜 차이 계산
+
+    const date1 = new Date("2025-06-01");
+    const date2 = new Date("2025-06-11");
+
+    const diffInMs = date2 - date1;
+    const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+    console.log(diffInDays);  // 10
+
+    // 6. 날짜 포맷팅(간단하게)
+
+    const formatted = `${d.getFullYear()}--${String(d.getMonth() + 1).padStart(2, '0')}--${String(d.getDate()).padStart(2, '0')}`;
+    console.log(formatted); // "2026--06--15" 
+
+    // 7. 요일 이름 출력
+    const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+    console.log(`오늘은 ${dayNames[d.getDay()]}요일입니다.`);
+
+    // 오늘부터 일주일 뒤 날짜 구하기
+    const today = new Date();
+    const oneWeekLater = new Date();
+    oneWeekLater.setDate(today.getDate() + 7);
+    console.log(oneWeekLater.toDateString());
+  </script>
+</body>
+</html>
