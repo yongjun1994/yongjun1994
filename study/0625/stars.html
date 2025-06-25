@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>별 계단 출력</title>
+</head>
+<body>
+  <script>
+    // let n = parseInt(prompt("숫자를 입력하세요:"));
+
+    // function printStars(n) {
+    //   for (let i = 1; i <= n; i++) {
+    //     document.write("*".repeat(i) + "<br>");
+    //   }
+    // }
+
+    // printStars(n);
+
+    // let n = parseInt(prompt("숫자를 입력하세요:"));
+
+    // function printStars(n) {
+    //   for (let i = 1; i <= n; i++) {
+    //     let line = "";
+
+    //     // 공백 출력: (n - i)번
+    //     for (let j = 1; j <= n - i; j++) {
+    //       line += "&nbsp;";
+    //     }
+
+    //     // 별 출력: i번
+    //     for (let k = 1; k <= i; k++) {
+    //       line += "*";
+    //     }
+
+    //     document.write(line + "<br>");
+    //   }
+    // }
+
+    // printStars(n);
+
+     let n = parseInt(prompt("숫자를 입력하세요:")); // 층 수
+
+    function printTriangle(n) {
+      for (let i = 1; i <= n; i++) {
+        let line = "";
+
+        // 좌측 공백
+        for (let j = 1; j <= n - i; j++) {
+          line += "&nbsp;";
+        }
+
+        // 별 (2*i - 1개)
+        for (let k = 1; k <= (2 * i - 1); k++) {
+          line += "*";
+        }
+
+        document.write(line + "<br>");
+      }
+    }
+
+    printTriangle(n);
+  </script>
+</body>
+</html>
