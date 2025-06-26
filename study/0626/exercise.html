@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 연습 예제</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <p id="text">안녕하세요!</p>
+  <button id="change-text">텍스트 변경</button>
+  <ol id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ol>
+  <script>
+    // 버튼 클릭시 텍스트가 바뀌는 기능
+    // document.querySelector() : 문서에서 CSS 선택자를 사용하여 요소를 선택
+    // let text = document.getElementById("text");
+    let text = document.getElementById("#text");
+    // let changeTextButton = document.getElementById("change-text");
+    // text.innerText : 요소의 텍스트 내용을 가져오거나 설정
+    let changeTextButton = document.querySelector("#change-text"); // 역할 : 버튼 요소를 선택
+    changeTextButton.addEventListener("click", function() {
+      // Date.now() : 현재 시간을 밀리초 단위로 반환
+      // innerText : 요소의 텍스트 내용을 설정
+      text.innerText = "Hello, World!" + Date.now();
+    });
+
+    // 문제 : d입력창에 글을 쓰고 Enter 누르면 목록에 추가되도록 구현
+
+    // 1. ol 리스트 가지고 온다
+    // 2. li 요소 하나 create 한다
+    // 3. input 요소 가지고 온다.
+    // 4. input 요소의 값을 가지고 온다.
+    // 5. li 요소의 텍스트를 input 요소의 값으로 변경한다.
+    // 6. ol 리스트에 li 요소를 추가한다.
+  </script>
+</body>
+</html>
