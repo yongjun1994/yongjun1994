@@ -55,22 +55,22 @@
 - `data-target` 속성과 `JavaScript`를 활용하여 탭처럼 전환
 - `scrollTo` + `.active` 클래스로 부드럽게 이동 및 표시 전환
 
-### 🧱 기능 3: 기술 스택 뱃지 UI
+### 🧱 기능 3: 정보 구조화 및 섹션별 텍스트 정보 정리
 
-- 언어 / DB / 프레임워크 항목을 구분하여 `.badge` 스타일 적용
-- 시각적으로 직관적인 태그 컬러링 구현 (`.js`, `.html`, `.react` 등)
-
+- 대외활동, 학력, 기술, 연락처는 각각 독립된 <section>으로 분리되어 있어 확장성과 유지보수 용이
+- <ul>, <h3>, <p> 태그를 적절히 조합하여 가독성 높은 이력서 형식으로 콘텐츠 구성
+- HTML/CSS 구조만으로도 정보전달이 명확하며, JavaScript는 탭 전환에만 집중되어 있음
 ---
 
 ## 🖼️ 데모 화면
 
 | 주요 화면   | 예시                        |
 |------------|-----------------------------|
-| 메인 섹션   | ![main](./image/home.png)   |
-| 기술 스택   | ![stack](./image/stack.png) |
-
-> ※ 데모 이미지는 직접 캡처 후 `/image/` 폴더에 저장하세요.
-
+| 메인 항목   | ![main](./image/main.jpg)   |
+| 대외활동 항목   | ![activity](./image/activity.jpg) |
+| 학력 항목   | ![background](./image/background.jpg) |
+| 기술 항목   | ![stack](./image/stack.jpg) |
+| 연락처 항목   | ![contact](./image/contact.jpg) |
 ---
 
 ## 🧠 회고 요약
