@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>⏰ 알림 타이머</title>
+</head>
+<body>
+  <h2>알림 타이머 설정</h2>
+  <input type="number" id="sec" placeholder="초 입력" />
+  <button onclick="setTimer()">시작</button>
+
+  <!-- 사용자가 입력한 시간 후에 알림을 띄움 -->
+  <script>
+    /**
+     * 사용자가 입력한 초 후에 알림을 띄우는 함수
+     */
+    function setTimer() { // 사용자가 입력한 초를 가져옵니다.
+      const sec = document.getElementById("sec").value; // 입력된 값을 가져옵니다.
+      if (isNaN(sec) || sec <= 0) { // 입력값이 숫자가 아니거나 0 이하인 경우
+        alert("올바른 시간을 입력하세요."); // 경고 메시지를 띄웁니다.
+        return;
+      }
+      alert(`${sec}초 후 알림이 울립니다.`); // 입력된 초를 알립니다.
+      setTimeout(() => { // 지정된 시간 후에 실행되는 함수입니다.
+        alert("⏰ 시간이 되었습니다!");
+      }, sec * 1000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BOM 브라우저 정보</title>
+</head>
+<body>
+  <h2>📱 브라우저 정보</h2>
+  <ul id="info"></ul>
+  <!-- 사용자 브라우저 종류, 화면 크기, 언어, 위치(위도/경도)를 표시 -->
+  <script>
+    // 브라우저 정보 출력
+    const info = document.getElementById("info"); // ul 요소를 가져옵니다.
+    const li = (text) => `<li>${text}</li>`; // li 요소를 생성하는 함수입니다.
+
+    info.innerHTML += li(`언어: ${navigator.language}`);  // 브라우저 언어 정보를 가져옵니다.
+    info.innerHTML += li(`브라우저: ${navigator.userAgent}`); // 브라우저의 userAgent 정보를 가져옵니다.
+    info.innerHTML += li(`화면 해상도: ${screen.width}x${screen.height}`); // 화면의 너비와 높이를 가져옵니다.
+
+    if ("geolocation" in navigator) { // geolocation API가 지원되는지 확인합니다.
+      navigator.geolocation.getCurrentPosition((position) => {
+        info.innerHTML += li(`위도: ${position.coords.latitude}`); // 현재 위치의 위도를 가져옵니다.
+        info.innerHTML += li(`경도: ${position.coords.longitude}`); // 현재 위치의 경도를 가져옵니다.
+      }, () => { // 위치 정보를 가져오는 데 실패했을 때의 처리
+        info.innerHTML += li("위치 정보를 가져올 수 없습니다."); // 위치 정보를 가져오지 못했을 때의 메시지입니다.
+      });
+    } else { // geolocation API가 지원되지 않는 경우
+      info.innerHTML += li("이 브라우저는 위치 정보를 지원하지 않습니다."); // 위치 정보를 지원하지 않는다는 메시지입니다.
+    }
+  </script>
+</body>
+</html>
