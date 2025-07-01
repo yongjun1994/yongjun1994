@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>별 찍기 응용 3번</title>
+  </head>
+  <body>
+    <script>
+      let n = parseInt(prompt("숫자를 입력하시오: "));
+
+      function printHollowDiamond(n) {
+        const drawLine = (i) => {
+          const spaces = ' '.repeat(n - i);
+          if (i === 1) return spaces + '*';
+          const inside = ' '.repeat(2 * i - 3);
+          return spaces + '*' + inside + '*';
+        };
+
+        for (let i = 1; i <= n; i++) {
+          console.log(drawLine(i));
+        }
+        for (let i = n - 1; i >= 1; i--) {
+          console.log(drawLine(i));
+        }
+      }
+
+      printHollowDiamond(n);
+    </script>
+  </body>
+</html>
