@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>별 찍기 응용 4번</title>
+  </head>
+  <body>
+    <script>
+      let n = parseInt(prompt("숫자를 입력하시오: "));
+
+      function printNumberPyramid(n) {
+        for (let i = 1; i <= n; i++) {
+          const left = Array.from({ length: i }, (_, k) => k + 1).join('');
+          const right = Array.from({ length: i - 1 }, (_, k) => i - k - 1).join('');
+          console.log((left + right).padStart(n + i - 1));
+        }
+      }
+
+      printNumberPyramid(n);
+    </script>
+  </body>
+</html>
