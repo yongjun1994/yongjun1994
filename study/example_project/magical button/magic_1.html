@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>마법의 버튼</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      transition: background 1s, color 1s;
+      background: #f5f5dc;
+      color: #222;
+    }
+
+    .story-box {
+      text-align: center;
+      max-width: 600px;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.8);
+      transition: background 1s;
+    }
+
+    .magic-button {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: #6a5acd;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .magic-button:hover {
+      background: #483d8b;
+    }
+
+    /* 상태별 배경 */
+    .state-day {
+      background: linear-gradient(to top, #87cefa, #ffffff);
+      color: #222;
+    }
+
+    .state-night {
+      background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
+    }
+
+    .state-space {
+      background: radial-gradient(ellipse at center, #000000 0%, #1a1a1a 100%);
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+  <div class="story-box" id="story">
+    🌞 **아침이 밝았습니다!** 마법의 버튼을 눌러보세요.
+  </div>
+  <button class="magic-button" onclick="changeWorld()">✨ 마법의 버튼</button>
+
+  <script>
+    const body = document.body;
+    const story = document.getElementById('story');
+
+    let state = 0;
+    const stories = [
+      {
+        className: 'state-day',
+        text: '🌞 **아침이 밝았습니다!** 마법의 버튼을 눌러보세요.',
+      },
+      {
+        className: 'state-night',
+        text: '🌙 **밤이 찾아왔습니다.** 별빛이 반짝입니다.',
+      },
+      {
+        className: 'state-space',
+        text: '🚀 **당신은 우주로 떠났습니다!** 새로운 세계가 펼쳐집니다.',
+      },
+      {
+        className: '',
+        text: '🔁 **모든 것이 원래대로 돌아왔습니다.** 다시 시작해볼까요?',
+      }
+    ];
+
+    function changeWorld() {
+      state = (state + 1) % stories.length;
+      const { className, text } = stories[state];
+
+      // Reset classes
+      body.className = '';
+      if (className) body.classList.add(className);
+      story.innerHTML = text;
+    }
+  </script>
+</body>
+</html>

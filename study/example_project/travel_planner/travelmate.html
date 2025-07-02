@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>✈️ TravelMate - 나만의 여행 플래너</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f5f8fa;
+        padding: 2rem;
+        color: #333;
+      }
+
+      h1 {
+        color: #0077cc;
+        margin-bottom: 1.5rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+      }
+
+      input,
+      button {
+        display: block;
+        margin: 0.5rem 0;
+        padding: 0.6rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 320px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #0077cc;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #005fa3;
+      }
+
+      #checklist label {
+        display: block;
+        margin: 0.3rem 0;
+      }
+
+      #dday-result,
+      #budgetResult {
+        font-weight: bold;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>✈️ TravelMate</h1>
+
+    <section id="trip-form">
+      <h2>1. 여행 정보 입력</h2>
+      <input type="text" id="name" placeholder="이름 입력" />
+      <input type="text" id="destination" placeholder="여행지 입력" />
+      <input type="date" id="startDate" />
+      <button id="startBtn">여행 계획 시작</button>
+    </section>
+
+    <section id="dday-result"></section>
+
+    <section id="checklist"></section>
+
+    <section id="budget">
+      <h2>2. 예산 계산기</h2>
+      <input type="number" id="flight" placeholder="항공권 비용" />
+      <input type="number" id="hotel" placeholder="숙박비" />
+      <input type="number" id="food" placeholder="식비" />
+      <button id="calcBudget">총비용 계산</button>
+      <p id="budgetResult"></p>
+    </section>
+
+    <script>
+      document.getElementById("startBtn").addEventListener("click", () => {
+        const name = document.getElementById("name").value.trim();
+        const destination = document.getElementById("destination").value.trim();
+        const startDate = new Date(document.getElementById("startDate").value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // 시간 제거
+
+        if (
+          !name ||
+          !destination ||
+          !document.getElementById("startDate").value
+        ) {
+          alert("모든 정보를 입력해주세요!");
+          return;
+        }
+
+        const diff = Math.ceil((startDate - today) / (1000 * 60 * 60 * 24));
+        const ddayText = `안녕하세요 ${name}님! ${destination}까지 D-${diff}일 남았습니다!`;
+        document.getElementById("dday-result").innerText = ddayText;
+
+        showChecklist();
+      });
+
+      function showChecklist() {
+        const items = ["여권", "충전기", "카메라", "옷", "우산"];
+        const checklistEl = document.getElementById("checklist");
+        checklistEl.innerHTML = "<h2>3. 📋 준비물 체크리스트</h2>";
+
+        items.forEach((item, idx) => {
+          const id = `item-${idx}`;
+          checklistEl.innerHTML += `
+          <label>
+            <input type="checkbox" id="${id}" />
+            ${item}
+          </label>`;
+        });
+      }
+
+      document.getElementById("calcBudget").addEventListener("click", () => {
+        const flight = Number(document.getElementById("flight").value);
+        const hotel = Number(document.getElementById("hotel").value);
+        const food = Number(document.getElementById("food").value);
+
+        if (isNaN(flight) || isNaN(hotel) || isNaN(food)) {
+          alert("모든 비용을 숫자로 입력해주세요.");
+          return;
+        }
+
+        const total = flight + hotel + food;
+        document.getElementById(
+          "budgetResult"
+        ).innerText = `총 예상 비용: ${total.toLocaleString()}원`;
+      });
+    </script>
+  </body>
+</html>
