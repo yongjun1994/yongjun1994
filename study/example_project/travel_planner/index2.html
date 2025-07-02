@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelMate</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <h1>✈️ TravelMate</h1>
+
+  <section id="trip-form">
+    <input type="text" id="name" placeholder="이름 입력" />
+    <input type="text" id="destination" placeholder="여행지 입력" />
+    <input type="date" id="startDate" />
+    <button id="startBtn">여행 계획 시작</button>
+  </section>
+
+  <section id="dday-result"></section>
+
+  <section id="checklist"></section>
+
+  <section id="budget">
+    <input type="number" id="flight" placeholder="항공권 비용" />
+    <input type="number" id="hotel" placeholder="숙박비" />
+    <input type="number" id="food" placeholder="식비" />
+    <button id="calcBudget">총비용 계산</button>
+    <p id="budgetResult"></p>
+  </section>
+
+  <script src="/src/app.js"></script>
+</body>
+</html>

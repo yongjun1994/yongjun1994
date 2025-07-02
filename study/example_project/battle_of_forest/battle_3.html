@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>충돌 처리 RPG - 위치 수정</title>
+  <style>
+    body {
+      background: #111;
+      font-family: sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    #game-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      display: grid;
+      grid-template-columns: repeat(10, 32px);
+      grid-template-rows: repeat(10, 32px);
+      border: 4px solid #444;
+    }
+
+    .tile {
+      width: 32px;
+      height: 32px;
+    }
+
+    .wall {
+      background: #333;
+    }
+
+    .floor {
+      background: #6b8e23;
+    }
+
+    #player {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background: url('https://i.namu.wiki/i/0JvIuP-m2wBMPM4ZJkcIhaaolmR67MuwW11WWAfc7Jfd3cX204T54wMzFT2tHzbQo3aH9OP-u1TYYe88B9Hh3Q.webp') no-repeat center center;
+      background-size: cover;
+      transition: top 0.1s, left 0.1s;
+      z-index: 10;
+    }
+
+    #log {
+      margin-top: 10px;
+      width: 320px;
+      background: #333;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🧱 충돌 처리 RPG (정렬됨)</h2>
+  <div id="game-container">
+    <!-- 맵 타일이 렌더링되고 -->
+    <!-- 플레이어도 여기에 포함되어야 위치가 일치함 -->
+    <div id="player"></div>
+  </div>
+  <div id="log">⬅️ 방향키로 이동해보세요.</div>
+
+  <script>
+    const gameContainer = document.getElementById("game-container");
+    const player = document.getElementById("player");
+    const log = document.getElementById("log");
+
+    const tileSize = 32;
+    const mapSize = 10;
+
+    const map = [
+      [0,0,0,1,0,0,0,0,0,0],
+      [0,1,0,1,0,1,1,1,0,0],
+      [0,1,0,0,0,0,0,1,0,0],
+      [0,1,1,1,1,1,0,1,0,0],
+      [0,0,0,0,0,1,0,0,0,0],
+      [1,1,1,1,0,1,1,1,1,0],
+      [0,0,0,1,0,0,0,0,1,0],
+      [0,1,0,1,1,1,1,0,1,0],
+      [0,1,0,0,0,0,0,0,1,0],
+      [0,0,0,1,1,1,1,0,0,0],
+    ];
+
+    let x = 0, y = 0;
+
+    function renderMap() {
+      // 맵 먼저 클리어
+      gameContainer.querySelectorAll('.tile').forEach(el => el.remove());
+
+      for (let row = 0; row < mapSize; row++) {
+        for (let col = 0; col < mapSize; col++) {
+          const tile = document.createElement("div");
+          tile.classList.add("tile");
+          tile.classList.add(map[row][col] === 1 ? "wall" : "floor");
+          gameContainer.appendChild(tile);
+        }
+      }
+    }
+
+    function updatePosition() {
+      player.style.left = `${x * tileSize}px`;
+      player.style.top = `${y * tileSize}px`;
+      log.textContent = `현재 위치: (${x}, ${y})`;
+    }
+
+    document.addEventListener("keydown", (e) => {
+      let nextX = x;
+      let nextY = y;
+
+      switch (e.key) {
+        case "ArrowUp": nextY--; break;
+        case "ArrowDown": nextY++; break;
+        case "ArrowLeft": nextX--; break;
+        case "ArrowRight": nextX++; break;
+        default: return;
+      }
+
+      if (
+        nextX >= 0 && nextX < mapSize &&
+        nextY >= 0 && nextY < mapSize &&
+        map[nextY][nextX] === 0
+      ) {
+        x = nextX;
+        y = nextY;
+        updatePosition();
+      } else {
+        log.textContent = `움직일 수 없습니다! (${nextX}, ${nextY})는 벽입니다.`;
+      }
+    });
+
+    renderMap();
+    updatePosition();
+  </script>
+</body>
+</html>

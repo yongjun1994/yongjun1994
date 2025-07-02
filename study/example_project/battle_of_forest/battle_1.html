@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>숲속 전투 RPG</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #2e8b57;
+      color: white;
+      padding: 20px;
+    }
+
+    .game-box {
+      max-width: 600px;
+      margin: auto;
+      background: #1f3a2e;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .status {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .actions button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .log {
+      background: #324d3e;
+      padding: 10px;
+      height: 150px;
+      overflow-y: auto;
+      margin-top: 10px;
+      border-radius: 5px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-box">
+    <h2>🌲 숲속 전투 – 슬라임과의 대결!</h2>
+
+    <div class="status" id="player-status">
+      🧑‍🌾 당신 HP: 100
+    </div>
+    <div class="status" id="enemy-status">
+      🟢 슬라임 HP: 50
+    </div>
+
+    <div class="actions">
+      <button onclick="attack()">⚔️ 공격</button>
+      <button onclick="heal()">🧪 회복</button>
+      <button onclick="run()">🏃 도망</button>
+    </div>
+
+    <div class="log" id="log">
+      ▶️ 전투가 시작되었습니다!
+    </div>
+  </div>
+
+  <script>
+    let playerHP = 100;
+    let enemyHP = 50;
+
+    function updateStatus() {
+      document.getElementById('player-status').textContent = `🧑‍🌾 당신 HP: ${playerHP}`;
+      document.getElementById('enemy-status').textContent = `🟢 슬라임 HP: ${enemyHP}`;
+    }
+
+    function logMessage(msg) {
+      const log = document.getElementById('log');
+      log.innerHTML += `<div>${msg}</div>`;
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function attack() {
+      const damage = Math.floor(Math.random() * 15) + 5;
+      enemyHP -= damage;
+      logMessage(`당신이 슬라임에게 ${damage}의 피해를 입혔습니다!`);
+      enemyTurn();
+    }
+
+    function heal() {
+      const healAmount = Math.floor(Math.random() * 10) + 10;
+      playerHP = Math.min(playerHP + healAmount, 100);
+      logMessage(`당신은 ${healAmount}만큼 회복했습니다.`);
+      enemyTurn();
+    }
+
+    function run() {
+      logMessage("당신은 도망쳤습니다. 게임 오버!");
+      disableButtons();
+    }
+
+    function enemyTurn() {
+      if (enemyHP <= 0) {
+        logMessage("🎉 슬라임을 처치했습니다! 승리!");
+        disableButtons();
+        updateStatus();
+        return;
+      }
+
+      const damage = Math.floor(Math.random() * 10) + 5;
+      playerHP -= damage;
+      logMessage(`슬라임이 당신에게 ${damage}의 피해를 입혔습니다!`);
+
+      if (playerHP <= 0) {
+        logMessage("💀 당신은 쓰러졌습니다. 게임 오버!");
+        disableButtons();
+      }
+
+      updateStatus();
+    }
+
+    function disableButtons() {
+      const buttons = document.querySelectorAll('.actions button');
+      buttons.forEach(btn => btn.disabled = true);
+    }
+
+    updateStatus();
+  </script>
+</body>
+</html>

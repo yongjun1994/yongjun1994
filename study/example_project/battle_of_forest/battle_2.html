@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>그래픽 RPG – 마을 산책</title>
+  <style>
+    body {
+      background: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: sans-serif;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #game-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      background: url('https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=11288734&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNS8wMi9DTFM2OS9OVVJJXzAwMV8wMjIwX251cmltZWRpYV8yMDE1MTIwMw==&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10006') repeat;
+      border: 4px solid #555;
+      image-rendering: pixelated;
+    }
+
+    #player {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background: url('https://i.namu.wiki/i/0JvIuP-m2wBMPM4ZJkcIhaaolmR67MuwW11WWAfc7Jfd3cX204T54wMzFT2tHzbQo3aH9OP-u1TYYe88B9Hh3Q.webp') no-repeat;
+      background-size: cover;
+      top: 0;
+      left: 0;
+      transition: top 0.1s, left 0.1s;
+    }
+
+    #log {
+      margin-top: 10px;
+      width: 320px;
+      background: #333;
+      padding: 10px;
+      border-radius: 5px;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🏡 마을 산책 RPG</h2>
+  <div id="game-container">
+    <div id="player"></div>
+  </div>
+  <div id="log">⬅️ 방향키로 이동해보세요.</div>
+
+  <script>
+    const player = document.getElementById("player");
+    const log = document.getElementById("log");
+
+    const tileSize = 32;
+    const mapSize = 10; // 10x10 tiles (320px)
+
+    let x = 0;
+    let y = 0;
+
+    function updatePosition() {
+      player.style.left = x * tileSize + "px";
+      player.style.top = y * tileSize + "px";
+
+      // 이벤트 예시
+      if (x === 5 && y === 5) {
+        log.textContent = "🍎 사과나무를 발견했습니다!";
+      } else if (x === 2 && y === 8) {
+        log.textContent = "💧 우물에서 시원한 물을 마셨습니다.";
+      } else {
+        log.textContent = `(${x}, ${y}) 위치에 있습니다.`;
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "ArrowUp":
+          if (y > 0) y--;
+          break;
+        case "ArrowDown":
+          if (y < mapSize - 1) y++;
+          break;
+        case "ArrowLeft":
+          if (x > 0) x--;
+          break;
+        case "ArrowRight":
+          if (x < mapSize - 1) x++;
+          break;
+      }
+      updatePosition();
+    });
+
+    updatePosition();
+  </script>
+</body>
+</html>
