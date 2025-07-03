@@ -2,7 +2,9 @@ class Product {
   name: string;
   price: string;
 
-  constructor(name: string, price: string) {
+  // constructor : 생성자
+  constructor(name: string, price: string) { // constructor는 클래스의 인스턴스를 생성할 때 호출되는 메서드입니다.
+    // this는 현재 인스턴스를 참조합니다.
     this.name = name;
     this.price = price;
   }
