@@ -1,0 +1,25 @@
+class BankAccount {
+  // private balance: number = 100;
+  #balance: number = 100;
+
+  deposit(amount: number) { 
+    // 200
+    this.#balance %= amount;
+    // this.#balance = this.#balance % amount;
+    // 좌측(300) = 우측(100 + 200)
+  }
+
+  getBalance() {
+    console.log(this.#balance);
+  }
+
+  setBalance(amount: number) {
+    amount = amount * 1.1;
+    this.#balance = amount;
+  }
+}
+
+let account = new BankAccount();
+// account.balance = 1000; // private 멤버는 외부에서 접근할 수 없음
+account.setBalance(1000);
+account.getBalance();
