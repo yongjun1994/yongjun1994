@@ -1,82 +1,58 @@
 <!DOCTYPE html>
-<!-- HTML5 문서임을 선언 -->
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <!-- 한글이 깨지지 않도록 UTF-8 인코딩 사용 -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 모바일 화면에서도 잘 보이도록 설정 -->
-
     <title>DOM Event 예제</title>
-    <!-- 웹페이지 제목 -->
-
     <style>
-      /* 게임 맵처럼 보일 영역 */
       #map {
-        width: 500px;                  /* 가로 500픽셀 */
-        height: 500px;                 /* 세로 500픽셀 */
-        background-color: #f0f0f0;     /* 밝은 회색 배경 */
-        position: relative;            /* 자식 요소의 위치를 제어하기 위해 relative 설정 */
+        width: 500px;
+        height: 500px;
+        background-color: #f0f0f0;
+        position: relative;
       }
 
-      /* 움직이는 빨간 캐릭터 스타일 */
       #character {
-        width: 50px;                   /* 캐릭터 너비 */
-        height: 50px;                  /* 캐릭터 높이 */
-        background-color: red;         /* 배경색: 빨강 */
-        position: absolute;            /* 위치를 자유롭게 지정 가능 (top, left 값으로) */
-        top: 0;                        /* 맨 위에서 시작 */
-        left: 0;                       /* 맨 왼쪽에서 시작 */
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     </style>
   </head>
-
   <body>
-    <!-- 캐릭터가 움직일 맵(배경)이 들어갈 박스 -->
     <div id="map"></div>
-
     <script>
-      // 빨간 캐릭터를 만들고, map 안에 추가하는 코드
+      // 입력창에 글을 쓰고 Enter 누르면 목록에 추가되도록 구현
+      // 키보드 방향키, div 가 상하좌우로 이동하는 것을 방금 배운 것으로 해보겠습니다.
+      let character = document.createElement("div");
+      let map = document.getElementById("map");
 
-      let character = document.createElement("div"); // <div> 태그를 새로 만듦
-      let map = document.getElementById("map");      // 맵 영역을 JavaScript에서 가져옴
+      character.id = "character";
 
-      character.id = "character"; // 만든 div에 "character"라는 ID를 붙임 (스타일 적용을 위해)
+      map.appendChild(character);
 
-      map.appendChild(character); // map 안에 캐릭터를 넣음
-
-      // 키보드를 눌렀을 때 실행되는 코드
       document.addEventListener("keydown", function (event) {
-        // console.log(event); // 어떤 키가 눌렸는지 확인하는 용도 (개발자 도구에 출력됨)
-        console.log("offsetTop:", character.offsetTop);   // 캐릭터의 위쪽 위치
-        console.log("offsetLeft:", character.offsetLeft); // 캐릭터의 왼쪽 위치
+        // console.log(event);
+        console.log("offsetTop:", character.offsetTop);
+        console.log("offsetLeft:", character.offsetLeft);
 
-        // 위쪽 화살표 키를 눌렀을 때
         if (event.key === "ArrowUp") {
           if (character.offsetTop > 0) {
-            // 캐릭터가 맵 위쪽 경계를 넘지 않았을 때만 위로 이동
             character.style.top = character.offsetTop - 10 + "px";
           }
-
-        // 아래쪽 화살표 키를 눌렀을 때
         } else if (event.key === "ArrowDown") {
           if (character.offsetTop < 450) {
-            // 캐릭터가 아래로 벗어나지 않도록 제한
             character.style.top = character.offsetTop + 10 + "px";
           }
-
-        // 왼쪽 화살표 키를 눌렀을 때
         } else if (event.key === "ArrowLeft") {
           if (character.offsetLeft > 0) {
-            // 캐릭터가 왼쪽 벽을 넘지 않도록 제한
             character.style.left = character.offsetLeft - 10 + "px";
           }
-
-        // 오른쪽 화살표 키를 눌렀을 때
         } else if (event.key === "ArrowRight") {
           if (character.offsetLeft < 450) {
-            // 오른쪽으로 이동 (450 이하로 제한 → 맵 크기 500 - 캐릭터 크기 50)
             character.style.left = character.offsetLeft + 10 + "px";
           }
         }

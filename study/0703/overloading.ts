@@ -1,5 +1,5 @@
 class Calculator {
-  add(a: number, b: number): void{
+  add(a: number, b: number): void {
     console.log(a + b);
   }
 

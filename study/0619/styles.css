@@ -48,7 +48,7 @@ footer {
 /* 미디어 쿼리 - 1024px 이상 */
 @media screen and (min-width: 1024px) {
   .content {
-    display: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 }

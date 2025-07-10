@@ -3,24 +3,24 @@ var User2 = /** @class */ (function () {
     }
     return User2;
 }());
-var Product2 = /** @class */ (function () {
-    function Product2() {
+var Product = /** @class */ (function () {
+    function Product() {
     }
-    return Product2;
+    return Product;
 }());
-var Order2 = /** @class */ (function () {
-    function Order2() {
+var Order = /** @class */ (function () {
+    function Order() {
     }
-    Order2.prototype.summary = function () {
-        console.log("\uC0AC\uC6A9\uC790 ".concat(this.user2.username, "\uAC00 ").concat(this.product2.productName, "\uC744(\uB97C) \uC8FC\uBB38\uD588\uC2B5\uB2C8\uB2E4."));
+    Order.prototype.summary = function () {
+        console.log("\uC0AC\uC6A9\uC790 ".concat(this.user.username, "\uAC00 ").concat(this.product.productName, " \uC744 \uC8FC\uBB38\uD588\uC2B5\uB2C8\uB2E4."));
     };
-    return Order2;
+    return Order;
 }());
 var user2 = new User2();
 user2.username = "홍길동";
-var product2 = new Product2();
-product2.productName = "책";
-var order2 = new Order2();
-order2.user2 = user2;
-order2.product2 = product2;
-order2.summary(); // 사용자 홍길동가 책을(를) 주문했습니다.
+var product = new Product();
+product.productName = "책";
+var order = new Order();
+order.user = user2;
+order.product = product;
+order.summary();
