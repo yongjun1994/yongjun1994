@@ -1,7 +1,6 @@
-function add(a, b) {
-    return a + b;
-}
-// typeScript로 변환하기
+// function add(a, b) {
+//   return a + b;
+// }
 // function add2(a: number, b: number): number {
 //   return a + b;
 // }

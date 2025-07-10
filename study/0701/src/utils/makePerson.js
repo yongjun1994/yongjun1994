@@ -6,5 +6,5 @@ function makePerson(name, age) {
     return { name, age };
 }
 function testMakePerson() {
-    console.log(makePerson("Jack", 22), makePerson("Jack", 33));
+    console.log(makePerson("Jane", 22), makePerson("Jack", 33));
 }

@@ -8,6 +8,6 @@ console.log(output2);
 function getValue(obj, key) {
     return obj[key];
 }
-var objects = { name: "John", age: 20 };
+var objects = { name: "john", age: 20 };
 var result2 = getValue(objects, "name");
 console.log(result2);

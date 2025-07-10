@@ -1,8 +1,8 @@
-class MyDog {
+class Dog {
   bark() {
     console.log("멍멍");
   }
 }
 
-let myDog = new MyDog();
-myDog.bark();
+let dog = new Dog();
+dog.bark();

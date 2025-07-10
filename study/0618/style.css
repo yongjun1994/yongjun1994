@@ -18,7 +18,7 @@ body {
   background-color: #f9c4d2;
   border-radius: 50%;
   position: relative;
-  z-index: 100;
+  z-index: 1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -29,18 +29,16 @@ body {
   position: absolute;
   top: -30px;
   border-radius: 50% 50% 0 0;
-  /* transform: rotate(45deg); */
+  transform: rotate(45deg);
   z-index: 0;
 }
 
 .ear.left {
   left: 0;
-  transform: rotate(-30deg);
 }
 
 .ear.right {
   right: 0;
-  transform: rotate(30deg);
 }
 
 .eye {
@@ -55,6 +53,7 @@ body {
 .eye.left {
   left: 50px;
 }
+
 .eye.right {
   right: 50px;
 }
@@ -66,9 +65,8 @@ body {
   position: absolute;
   top: 100px;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-50%);
   border-radius: 50%;
-  z-index: 100;
 }
 
 .whisker {

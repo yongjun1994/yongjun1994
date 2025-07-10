@@ -1,149 +1,141 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form</title>
-</head>
-<body>
-  <form action="https://www.tmd.co.kr/join" method="post">
-    <label for="name">이름</label>
-    <input 
-      type="text" 
-      id="name" 
-      name="name" 
-      placeholder="이름을 입력해주세요."
-    />
+<html>
+  <head>
+    <title>Form</title>
+  </head>
+  <body>
+    <form action="https://www.tmd.co.kr/join" method="post">
+      <label for="name">이름</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="이름을 입력해주세요."
+      />
 
-    <br /><br />
+      <br /><br />
 
-    <label for="email">이메일</label>
-    <input 
-      type="email" 
-      id="email" 
-      name="email" 
-      placeholder="비밀번호를 입력해주세요"
-    />
+      <label for="email">이메일</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="이메일을 입력해주세요."
+      />
 
-    <br /><br />
+      <br /><br />
 
-    <label for="password">비밀번호</label>
-    <input 
-      type="password" 
-      id="password" 
-      name="password" 
-      placeholder="비밀번호를 입력해주세요"  
-    />
+      <label for="password">비밀번호</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="비밀번호를 입력해주세요."
+      />
 
-    <br /><br />
+      <br /><br />
 
-    <input type="submit" value="전송" />
-  </form>
+      <input type="submit" value="전송" />
+    </form>
 
-  <form action="" method="get">
-    <!-- 집합 모임 -->
-    <fieldset>
-      <legend>개인 정보</legend>
-      <ul>
-        <li>
-          <label for="name">이름</label>
-          <input type="text" id="name" name="name" placeholder="이름을 입력해주세요." />
-        </li>
-        <li>
-          <label for="mail">메일 주소</label>
-          <input type="text" id="mail" name="mail" placeholder="메일을 입력해주세요." />
-        </li>
-        <li>
-          <label for="subscribe">
-            <input type="checkbox" id="subscribe" name="subscribe" />
-            구독하기
-          </label>
-          <label for="subscribe">
-            <input type="checkbox" id="subscribe" name="subscribe" />
-            구독하기2
-          </label>
-          <label for="subscribe">
-            <input type="checkbox" id="subscribe" name="subscribe" />
-            구독하기3
-          </label>
-        </li>
+    <form action="" method="get">
+      <fieldset>
+        <legend>개인 정보</legend>
+        <ul>
+          <li>
+            <label for="name">이름</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="이름을 입력해주세요."
+            />
+          </li>
+          <li>
+            <label for="mail">메일 주소</label>
+            <input
+              type="text"
+              id="mail"
+              name="mail"
+              placeholder="메일을 입력해주세요."
+            />
+          </li>
+          <li>
+            <label for="age">나이</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              min="0"
+              max="200"
+              placeholder="Enter your age"
+            />
+          </li>
 
-        <li>
-          <label><input type="radio" name="gender" />남자</label>
-          <label><input type="radio" name="gender" />여자</label>
-          <label><input type="radio" name="gender" />여자1</label>
-          <label><input type="radio" name="gender" />여자2</label>
-        </li>
+          <li>
+            <label>
+              <input type="checkbox" name="subscribe" />
+              구독하기
+            </label>
+            <label>
+              <input type="checkbox" name="subscribe" />
+              구독하기2
+            </label>
+            <label>
+              <input type="checkbox" name="subscribe" />
+              구독하기3
+            </label>
+          </li>
 
-        <li>
-          <input type="file" name="file" />
-        </li>
+          <li>
+            <label><input type="radio" name="gender" />남자</label>
+            <label><input type="radio" name="gender" />여자</label>
+            <label><input type="radio" name="gender" />여자2</label>
+            <label><input type="radio" name="gender" />여자3</label>
+          </li>
 
-        <li>
-          <input type="date" name="date" />
-        </li>
+          <li>
+            <input type="file" name="file" />
+          </li>
 
-        <li>
-          <input type="range" name="range" min="0" max="120">
-        </li>
+          <li>
+            <input type="date" name="date" />
+          </li>
 
-        <li>
-          <input type="color" name="color" />
-        </li>
+          <li>
+            <input type="range" name="range" min="0" max="100" />
+          </li>
 
-        <li>
-          <label for="country">Select your country</label>
-          <select name="country" id="country">
-            <option value="usa">USA</option>
-            <option value="canada">Canada</option>
-            <option value="uk">UK</option>
-          </select>
-        </li>
+          <li>
+            <input type="color" name="color" />
+          </li>
 
-        <li>
-          <label for="message">Your message:</label>
-          <textarea 
-            name="message" id="message"
-            rows="5"
-            cols="50"
-            placeholder="Enter your message here">
-          </textarea>
-        </li>
-        <li>
-          <button type="submit">Submit</button>
-        </li>
-      </ul>
-    </fieldset>
-  </form>
+          <li>
+            <label for="country">Select your country</label>
+            <select name="country" id="country">
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </li>
 
-  <form action="">
-    <fieldset>
-      <legend>Contact</legend>
-      <ul>
-        <li>
-          <label for="name">Name : </label>
-          <input type="text" id="name" name="name" />
-        </li>
-        <br />
-        <li>
-          <label for="email">E-mail : </label>
-          <input type="text" id="email" name="email" />
-        </li>
-        <br />
-        <li>
-          <label for="message">Message : </label>
-          <textarea 
-            name="message" id="message"
-            rows="5"
-            cols="50"
-            >
-          </textarea>
-        </li>
-        <div style="text-align: center;">
-          <button type="submit">Send Your Message</button>
-        </div>
-      </ul>
-    </fieldset>
-  </form>
-</body>
+          <li>
+            <label for="message">Your Message:</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              cols="50"
+              placeholder="Enter your message here"
+            ></textarea>
+          </li>
+          <li>
+            <button type="submit">Submit</button>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+
+    <form action="" method="get"></form>
+  </body>
 </html>

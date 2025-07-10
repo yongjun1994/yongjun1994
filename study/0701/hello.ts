@@ -1,7 +1,7 @@
-console.log("Hello, world!");
+console.log("Hello World!!!");
 
 function greet(name: string): string {
-    return "Hello, ".concat(name);
+  return `Hello, ${name}`;
 }
 
 console.log(greet("John"));
@@ -24,6 +24,7 @@ a = {};
 let u: undefined = undefined;
 // u = 1;
 
-let count = 10, message = "Your count";
+let count = 10,
+  message = "Your count";
 let result = `${message} is ${count}`;
 console.log(result);
