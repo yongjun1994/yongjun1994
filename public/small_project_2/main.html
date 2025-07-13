@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>main-page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "IBM Plex Sans KR", sans-serif;
+    }
+
+    body {
+      background-color: white;
+      text-align: center;
+    }
+
+    header {
+      padding-top: 50px;
+      margin-bottom: 30px; 
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 20px 0;
+      gap: 30px; 
+    }
+
+    .left-container, .right-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-container img {
+      width: 250px;
+      height: 200px;
+    }
+
+    .right-container img {
+      width: 125px; 
+      height: 100px; 
+    }
+
+    .right-container div {
+      margin-bottom: 30px; 
+    }
+
+    .label, .footer-content span {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 5px;
+      display: block;
+    }
+
+    .footer-container {
+      position: fixed;
+      bottom: 10px; 
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      gap: 40px; 
+    }
+
+    .footer-content img {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Korea 버거에 오신것을 환영합니다.</h2>
+  </header>
+
+  <main>
+    <div class="image-container">
+      <div class="left-container">
+        <a href="list.html">
+          <img src="asset/images/logo.jpg" alt="전체 목록">
+        </a>
+        <span class="label">전체 목록</span>
+      </div>
+      <div class="right-container">
+        <div>
+          <a href="detail.html">
+            <img src="asset/images/burger.jpg" alt="햄버거 목록">
+          </a>
+          <span class="label">햄버거 목록</span>
+        </div>
+        <div>
+          <a href="drink.html">
+            <img src="asset/images/drink.png" alt="음료 목록">
+          </a>
+          <span class="label">음료 목록</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="footer-container">
+    <div class="footer-content">
+      <span class="label">품목 생성</span>
+      <a href="create-item.html">
+        <img src="asset/images/plus-sign.png" alt="품목 생성">
+      </a>
+    </div>
+  </div>
+</body>
+</html>

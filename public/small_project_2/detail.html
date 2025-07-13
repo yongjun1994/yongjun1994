@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>품목상세보기</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+    
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "IBM Plex Sans KR", serif;
+    }
+
+    body{
+      background-color: black;
+      color: white;
+    }
+
+    header{
+      display: flex;
+      column-gap: 15px;
+      padding: 20px 30px;
+      align-items: flex-start;  /* 자식요소들을 교차축의 시작부분에 정렬 왼쪽으로 모두 정렬*/
+                                /* 만일 이부분이 없으면 btn-container의 내용은 상하로 길어짐 */
+      justify-content: space-between;  /* 첫번째 자식요소는 시작부분에 마지막 자식요소는 끝부분 */
+    }
+
+    .logo-wrapper{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo{
+      height: 30px;       /* logo의 세로 크기를 지정함. */
+    }
+
+    .btn-container{
+      display: flex;
+      column-gap: 10px;
+    }
+    .icon-btn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(63, 63, 63);
+      color: rgb(199, 199, 199);
+      border: none;
+      padding: 5px;
+      border-radius: 100%;
+      cursor: pointer;
+    }
+
+    .search-form{
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      background-color: rgb(102, 102, 102);
+      border-radius: 15px;
+      padding-left: 15px;
+    }
+
+    .search-icon{
+      color: rgb(160, 160, 160);
+    }
+    .search-bar{
+      width: 100%;
+      padding: 5px 20px 5px 5px;
+      border: none;
+      outline: none;
+      border-radius: 15px;
+      color: white;
+      background: none;
+    }
+
+
+    ::placeholder{
+      color: rgb(160, 160, 160);
+    }
+
+    footer{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 0;
+      color: rgb(160, 160, 160);
+    }
+
+    .container{
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+    }
+    .main-container{
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      column-gap: 15px;
+    }
+    .item-container{    /* item 이미지와 설명  */
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      padding: 0 30px;
+      color: rgb(192, 192, 192);
+    }
+    .item-names{
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      align-items: center;
+    }
+
+    .item-name{    
+      text-align: center;
+    }
+
+    .item-subname{     
+      font-weight: normal;
+      font-size: 16px;
+    }
+
+    .item-image{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .item-detail{     /* item 정보와 스펙  */
+      display: flex;
+      flex-direction: column;
+      row-gap: 50px;
+      padding: 0 30px;
+      color: rgb(192, 192, 192);
+    }
+    .item-nutrition{      /* item 제목과 스펙  */
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      padding: 0;
+      color: rgb(192, 192, 192);
+    }   
+
+    .item-info{    /* item 상세 정보(가격, 수량, 스펙을 구성 */
+      display: grid;
+      grid-template-columns: minmax(80px, 1fr) 1fr;  /* 두개의 열을 첫번째와 두번째 모두 1의 비율로 공간 설정, 첫번째 열은 최소 80px로 설정 */
+      gap: 10px;        /* 행과 열의 간격을 10px로 지정 */
+    }
+    .item-info > *:nth-child(2n) { /* 짝수번째 아이템 (두 번째 열) 선택 */
+      justify-self: end;
+    }
+    .item-spec{         /* item의 스펙 상세  */
+      display: grid;
+      grid-template-columns:  minmax(80px, 1fr) 1fr;  /* 두개의 열을 첫번째와 두번째 모두 1의 비율로 공간 설정, 첫번째 열은 최소 80px로 설정 */
+      gap: 10px;        /* 행과 열의 간격을 10px로 지정 */
+    }
+    .item-spec > *:nth-child(2n) { /* 짝수번째 아이템 (두 번째 열) 선택 */
+      justify-self: end;
+    }
+    .list-btn{          /* 돌아가는 버튼  */
+      padding: 5px;
+      cursor: pointer;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 3px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo-wrapper" href="./hnb-list.html">
+      <img class="logo" src="./asset/images/logo.png" alt="logo">
+    </a>
+    <form class="search-form" action="">
+      <svg class="search-icon w-[23px] h-[23px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-width="3" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+      </svg>
+      <input class="search-bar" type="text" placeholder="품목이름 입력">
+    </form>
+    <div class="btn-container">
+        <button id="item-create" class="icon-btn">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 6c0 1.657-3.134 3-7 3S5 7.657 5 6m14 0c0-1.657-3.134-3-7-3S5 4.343 5 6m14 0v6M5 6v6m0 0c0 1.657 3.134 3 7 3s7-1.343 7-3M5 12v6c0 1.657 3.134 3 7 3s7-1.343 7-3v-6"/>
+          </svg>       
+        </button>
+        <button id="item-update" class="icon-btn">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
+          </svg>              
+        </button>
+        <button id="item-delete" class="icon-btn">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+          </svg>              
+        </button>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="main-container">
+        <div class="item-container">
+          <div class="item-names">
+            <h2 class="item-name">빅맥</h2>
+            <h3 class="item-subname">Big Mac</h3>
+          </div>
+          <img class="item-image" src="./asset/images/burger.jpg" alt="Big Mac">
+          <p class="item-explanation">
+            100% 순 쇠고기 패티 두 장에 빅맥만의 특별한 소스.
+            입안에서 살살 녹는 치즈와 신선한 양상추, 양파, 그리고 피클까지.
+            50년 넘게 전 세계인의 입맛을 사로 잡은 버거의 대명사.
+          </p>
+        </div>
+        <div class="item-detail">
+          <div class="item-info">
+            <p>가격</p>
+            <p>5,500</p>
+            <p>수량</p>
+            <p>100</p>
+          </div>
+          <div class="item-nutrition">
+            <h3>[영양정보]</h3>
+            <div class="item-spec">
+              <p>중량</p>
+              <p>223g</p>
+              <p>중량</p>
+              <p>-</p>
+              <p>열량</p>
+              <p>582kcal</p>
+              <p>당</p>
+              <p>8g</p>
+              <p>단백질</p>
+              <p>27g</p>
+              <p>포화지방</p>
+              <p>11g</p>
+              <p>나트륨</p>
+              <p>902mg</p>
+              <p>카페인</p>
+              <p>-</p>          
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <button id="backtolist" class="list-btn">Back to List</button>
+
+    </div>
+  </main>
+  <footer>&copy; 2025. BSY all rights reserved.</footer>
+
+  <script>
+
+    document.getElementById('backtolist').addEventListener('click', function() {
+      window.location.href = 'hnb-list.html';
+    });
+
+  </script>
+
+
+
+</body>
+</html>
