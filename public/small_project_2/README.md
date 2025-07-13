@@ -1,87 +1,102 @@
 # 📌 프로젝트명: 햄버거 재고 관리 대시보드 (Burger Inventory Manager)
 
-> 본 프로젝트는 **React, JavaScript, CSS, HTML**을 활용한 CRUD 기반 미니 프로젝트입니다.  
-> 사용자 친화적인 UI를 통해 햄버거 품목 등록, 조회, 수정, 삭제 기능을 구현하였으며, 기본적인 상태 관리 및 컴포넌트 구조화를 경험하였습니다.
+> 본 프로젝트는 **React, JavaScript, CSS, HTML**을 기반으로 제작된 SPA 방식의 CRUD 대시보드입니다.  
+> 햄버거 품목의 생성, 조회, 수정, 삭제 기능을 통해 컴포넌트 기반 개발, 상태 관리, 라우팅, 비동기 처리 등 React의 핵심 개념을 실습하며,  
+> 키오스크 UI 스타일의 실제 제품 환경을 시각적으로 구현하는 데 집중하였습니다.
 
 ---
 
 ## 📅 프로젝트 기간
 
 - **시작일:** 2025.07.13  
-- **종료일:** 2025.07.20 
+- **종료일:** 2025.07.27
 
 ---
 
 ## 🎯 프로젝트 목표
 
-- ✅ 반응형 웹 레이아웃 설계 및 스타일링 적용
-- ✅ 햄버거 품목 등록(Create), 조회(Read), 수정(Update), 삭제(Delete) 기능 구현
-- ✅ 로컬 스토리지를 활용한 임시 데이터 저장 처리
-- ✅ 컴포넌트 분리를 통한 코드 구조화 및 재사용성 향상
+- ✅ React 컴포넌트 구조 설계 및 분리 실습
+- ✅ 상태 기반 CRUD 기능 구현 (useState, useEffect 등)
+- ✅ React Router를 통한 페이지 라우팅 구성
+- ✅ 사용자 친화적인 키오스크 UI 디자인 설계
+- ✅ 컴포넌트 재사용성과 유지보수성을 고려한 개발
 
 ---
 
 ## 🛠️ 사용 기술 스택
 
-| 구분       | 기술 상세                         |
-|------------|----------------------------------|
-| Frontend   | React, JavaScript, HTML, CSS     |
-| State Mgmt | useState, useEffect (React Hooks)|
-| DevTools   | VSCode, Git, GitHub, Vite 등     |
+| 구분       | 기술 상세                                 |
+|------------|--------------------------------------------|
+| Frontend   | React, JavaScript, HTML, CSS               |
+| State Mgmt | useState, useEffect (React Hooks)          |
+| Routing    | React Router DOM                           |
+| Style      | CSS Modules, Flexbox, Grid, Media Query    |
+| Dev Tools  | VSCode, GitHub, Chrome DevTools, Vite      |
 
 ---
 
 ## 📁 프로젝트 폴더 구조
 
 ```bash
-📁 small_project_2/
-├── public/             # index.html 및 정적 리소스
+📁 burger-inventory-dashboard/
+├── public/                    # index.html, 정적 리소스
 ├── src/
-│   ├── components/     # Header, ItemForm, ItemList 등
-│   ├── pages/          # MainPage, ListPage 등
-│   ├── styles/         # CSS 또는 module.css
-│   ├── App.jsx         # 전체 라우팅 및 컴포넌트 연결
-│   └── index.js        # 진입 파일
-├── README.md
-└── package.json
+│   ├── assets/                # 이미지 리소스
+│   ├── components/            # Header, ItemCard, ItemForm, etc.
+│   ├── pages/                 # MainPage, ListPage, DetailPage, CreatePage
+│   ├── routes/                # AppRouter.jsx
+│   ├── App.jsx                # 라우팅 포함한 메인 컴포넌트
+│   └── main.jsx               # 진입 파일
+├── package.json
+└── README.md
 ```
+
 ## ✨ 주요 기능 설명
 
-### ✅ 기능 1: 품목 등록 (Create)
+### 🏠 1. 메인 대시보드 (`MainPage.jsx`)
+- 전체 목록, 햄버거 목록, 음료 목록으로 이동할 수 있는 진입 페이지
+- 각 카테고리별 섹션으로 이동 가능한 버튼 및 이미지
+- 하단에 ‘품목 생성’ 버튼 고정 (Floating Button)
 
-- 사용자가 품목명, 수량 등을 입력하여 재고 추가
-- 입력값 유효성 검사 및 경고 처리 포함
+---
 
-### 📋 기능 2: 전체 조회 (Read)
+### 📋 2. 전체 목록 페이지 (`ListPage.jsx`)
+- 등록된 모든 품목을 카드 형태로 출력
+- `useEffect`를 통해 로컬 저장소 또는 mock data 불러오기
+- 검색 기능 구현 (품목명 기반 필터링)
+- 카테고리별 필터 버튼 (햄버거 / 음료)
 
-- 등록된 품목을 테이블 형태로 출력
-- `useEffect`로 초기 로컬 데이터 불러오기 구현
+---
 
-### ✏️ 기능 3: 품목 수정 (Update)
+### 🔍 3. 품목 상세보기 페이지 (`DetailPage.jsx`)
+- 선택된 품목의 이미지, 이름, 설명, 가격, 수량, 영양정보를 상세하게 출력
+- 상단에 ‘수정’, ‘삭제’ 버튼 배치
+- 삭제 시 confirm 처리 후 메인 페이지 이동
 
-- 목록에서 수정 버튼 클릭 시 기존 값이 form에 자동 입력됨
-- 수정 후 저장하면 원래 항목이 업데이트됨
+---
 
-### ❌ 기능 4: 품목 삭제 (Delete)
-
-- 항목별 삭제 버튼으로 리스트에서 제거 가능
-- 삭제 전 사용자 확인(alert 또는 confirm)
+### ✏️ 4. 품목 생성 / 수정 페이지 (`CreatePage.jsx`)
+- 입력 폼을 통해 상품명, 가격, 카테고리, 수량, 설명, 영양정보 입력
+- 각 필드에 `placeholder`와 단위 안내 포함
+- 저장 시 `useState` 및 `localStorage` 기반 상태 업데이트
+- 수정 시 기존 데이터 사전 입력 (edit mode)
 
 ---
 
 ## 🖼️ 데모 화면 캡처
 
-| 주요 기능 | 화면 예시                          |
-|-----------|-----------------------------------|
-| 홈 화면    | ![home](./assets/home.png)         |
-| 등록 폼    | ![create](./assets/create.png)     |
-| 목록 조회  | ![read](./assets/list.png)         |
-| 수정/삭제  | ![edit](./assets/edit.gif)         |
+| 주요 기능     | 화면 예시                        |
+|--------------|-------------------------------|
+| 메인 대시보드 | ![main](./image/main.png)     |
+| 전체 목록     | ![list](./image/list.png)     |
+| 상세 보기     | ![detail](./image/detail.png) |
+| 품목 생성     | ![create](./image/create.png) |
+
 
 ---
 
-## 🙋‍♀️ 개발자
+## 👨‍💻 개발자
 
-| 이름  | GitHub                                           |
-| --- | ------------------------------------------------ |
-| 이용준 | [github.com/yongjun1994](https://github.com/yongjun1994) |
+| 이름   | GitHub                                                  |
+|--------|----------------------------------------------------------|
+| 이용준 | [https://github.com/yongjun1994](https://github.com/yongjun1994) |
