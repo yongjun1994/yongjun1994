@@ -1,0 +1,309 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+ul {
+  list-style: none;
+}
+
+.main-header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.main-nav li {
+  margin: 0 15px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.main-nav li:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.main-nav li:hover a {
+  text-decoration: underline;
+  color: #ffcc00;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.section-block {
+  display: none;
+  background-color: #fff;
+  padding: 30px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 960px;
+}
+
+.section-block.active {
+  display: block;
+}
+
+.section-block h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.about-image {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tech-stack {
+  margin-top: 10px;
+}
+
+.stack-group {
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 5px 10px;
+  margin: 5px 5px 0 0;
+  border-radius: 5px;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.js {
+  background-color: #f7df1e;
+  color: #000;
+}
+.html {
+  background-color: #e44d26;
+  color: #fff;
+}
+.css {
+  background-color: #264de4;
+  color: #fff;
+}
+.java {
+  background-color: #f89820;
+  color: #fff;
+}
+.python {
+  background-color: #3776ab;
+  color: #fff;
+}
+.r {
+  background-color: #276dc3;
+  color: #fff;
+}
+.c {
+  background-color: #00599c;
+  color: #fff;
+}
+.csharp {
+  background-color: #178600;
+  color: #fff;
+}
+
+.oracle {
+  background-color: #f80000;
+  color: #fff;
+}
+.mysql {
+  background-color: #00758f;
+  color: #fff;
+}
+.sqlite {
+  background-color: #003b57;
+  color: #fff;
+}
+.mongodb {
+  background-color: #4db33d;
+  color: #fff;
+}
+
+.react {
+  background-color: #61dafb;
+  color: #000;
+}
+.thymeleaf {
+  background-color: #005f0f;
+  color: #fff;
+}
+.bootstrap {
+  background-color: #563d7c;
+  color: #fff;
+}
+.node {
+  background-color: #68a063;
+  color: #fff;
+}
+.next {
+  background-color: #000;
+  color: #fff;
+}
+.spring {
+  background-color: #6db33f;
+  color: #fff;
+}
+.jquery {
+  background-color: #0769ad;
+  color: #fff;
+}
+.jinja {
+  background-color: #b41717;
+  color: #fff;
+}
+.anaconda {
+  background-color: #44a833;
+  color: #fff;
+}
+.opencv {
+  background-color: #3fef2a;
+  color: #000;
+}
+
+.job-entry,
+.edu-entry {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #eee;
+}
+
+.job-entry:last-child,
+.edu-entry:last-child {
+  border-bottom: none;
+}
+
+.job-entry h3,
+.edu-entry h3 {
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.job-title {
+  font-weight: normal;
+  color: #777;
+  font-size: 0.9em;
+}
+
+.job-duration,
+.edu-duration {
+  font-size: 0.85em;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.skill-category {
+  margin-bottom: 15px;
+}
+
+.skill-category h3 {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.main-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-nav li {
+    margin: 10px 0;
+  }
+
+  .section-block {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header h1 {
+    font-size: 1.8em;
+  }
+
+  .main-header p {
+    font-size: 0.9em;
+  }
+
+  .section-block h2 {
+    font-size: 1.5em;
+  }
+}
