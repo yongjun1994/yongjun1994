@@ -109,7 +109,6 @@ Shields.io에서 다양한 스타일 제공:
 [![Blog](https://img.shields.io/badge/-Blog-03C75A?style=flat-square&logo=naver&logoColor=white)](https://blog.naver.com/colabdiary)
 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/mikediary1)
 
-📞 Tel: +82-10-8288-0797  
 📧 E-mail: iyongjun089@gmail.com
 📧 Naver: fmd6363@naver.com
 ---
