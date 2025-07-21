@@ -5,8 +5,9 @@ function App2() {
 
   // useEffect(() => {
   //   console.log("useEffect 실행");
-  //   setTimeout(()=>{
-  //     alert("환영합니다!")}, 3000);
+  //   setTimeout(() => {
+  //     alert("환영합니다!");
+  //   }, 3000);
   // }, []);
 
   useEffect(() => {

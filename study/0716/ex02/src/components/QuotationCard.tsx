@@ -5,7 +5,7 @@ type Quotation = {
   carName: string;
   year: number;
   price: number;
-}
+};
 
 export default function QuotationCard({ carName, year, price }: Quotation) {
   return (
