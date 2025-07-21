@@ -1,13 +1,17 @@
-import QuoteCard from "../components/QuoteCard";
+// itcr
+// 임타클반
+
+import QuotationCard from "../components/QuotationCard";
 import { quotationMock } from "../data/quotationMock";
 
 export default function QuotationPage() {
   return (
-    <main className="p-4 space-y-4">
-      {quotationMock.map((item, index) => (
-        <QuoteCard 
-          key={index}
-          text={`차종: ${item.carName}, 연식: ${item.year}`}
+    <main>
+      {quotationMock.map((item) => (
+        <QuotationCard
+          carName={item.carName}
+          year={item.year}
+          price={item.price}
         />
       ))}
     </main>
