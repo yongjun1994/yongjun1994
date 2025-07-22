@@ -84,8 +84,8 @@
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/yongjun1994)
 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/mikediary1)
 
-📧 E-mail: iyongjun089@gmail.com
-📧 Naver: fmd6363@naver.com
+### 📧 E-mail: iyongjun089@gmail.com
+### 📧 Naver: fmd6363@naver.com
 ---
 
 
