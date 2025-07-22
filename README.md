@@ -1,5 +1,5 @@
-About
-TMD GEN AI 기반 웹 개발 저장소
+# About
+## TMD GEN AI 기반 웹 개발 저장소
 
 # 👋 Hi there, I'm Yong Jun Lee!
 ## 🚀 I am a **Aspiring Full-stack Web Developer**.
