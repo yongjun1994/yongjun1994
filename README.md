@@ -39,77 +39,49 @@
 
 ## 4. 기타
 
-### 4.1 GitHub Stats 카드
+### 4.1 GitHub Stats 
 
 ## 📊 GitHub 통계
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=yongjun1994&show_icons=true&theme=radical)
 
 
-### 4.2 많이 사용한 언어 표시
+### 4.2 많이 사용한 언어 
 
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=yongjun1994&layout=compact&theme=radical)
 
+### 4.3 주요 스택
 
-### 4.3 GitHub Streak (연속 커밋)
+| 기술       | 수준       | 경험 |
+| ---------- | ---------- | ---- |
+| JavaScript | ⭐⭐⭐ | 2년  |
+| React      | ⭐⭐⭐   | 1년  |
+| TypeScript | ⭐⭐ | 6개월  |
+| Java      | ⭐⭐⭐   | 2년  |
+| Python | ⭐⭐⭐ | 3년  |
+| C      | ⭐⭐   | 2년  |
+
+
+### 4.4 GitHub Streak (연속 커밋)
 
 
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=yongjun1994&theme=radical)
 
-## 5. 동적 콘텐츠 추가
+## 📝 기술 블로그
 
-### 5.1 최근 블로그 포스트
+[![Blog](https://img.shields.io/badge/-Blog-03C75A?style=flat-square&logo=naver&logoColor=white)](https://blog.naver.com/colabdiary)
 
-GitHub Actions를 사용해 RSS 피드에서 자동으로 업데이트:
-
-
-## 📝 최근 블로그 포스트
-
-<!-- BLOG-POST-LIST:START -->
-<!-- BLOG-POST-LIST:END -->
-
-
-### 5.2 방문자 카운터
+##  방문자 카운터
 
 ![Visitor Count](https://profile-counter.glitch.me/yongjun1994/count.svg)
 
-## 6. 레이아웃과 디자인 팁
-
-### 6.1 이모지 활용
-
-- 섹션별로 관련 이모지 사용
-- 🚀 프로젝트, 💼 경력, 📫 연락처 등
-
-### 6.2 배지(Badge) 스타일링
-
-Shields.io에서 다양한 스타일 제공:
-
-- `flat`, `flat-square`, `plastic`, `for-the-badge`
-
-### 6.3 정렬과 구조
-
-```markdown
-<div align="center">
-  
-  # 중앙 정렬된 제목
-  
-</div>
-
-<p align="left">왼쪽 정렬 텍스트</p>
-<p align="right">오른쪽 정렬 텍스트</p>
-```
-
-## 7. 실용적인 예시
-
-### 7.1 연락처 섹션
 
 ## 📫 연락하기
 
 [![Email](https://img.shields.io/badge/-Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:iyongjun089@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yongjunlee-b8a49924b)
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/yongjun1994)
-[![Blog](https://img.shields.io/badge/-Blog-03C75A?style=flat-square&logo=naver&logoColor=white)](https://blog.naver.com/colabdiary)
 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/mikediary1)
 
 📧 E-mail: iyongjun089@gmail.com
