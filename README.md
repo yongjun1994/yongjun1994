@@ -46,7 +46,8 @@
 ### 4.2 많이 사용한 언어 
 
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=yongjun1994&layout=compact&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=yongjun1994&layout=compact&theme=radical&cache_seconds=86400)
+
 
 ### 4.3 주요 스택
 
@@ -71,7 +72,8 @@
 
 ##  방문자 카운터
 
-![Visitor Count](https://profile-counter.glitch.me/yongjun1994/count.svg)
+![Visitor Count](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/yongjun1994&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=visits&edge_flat=false)
+
 
 
 ## 📫 연락하기
