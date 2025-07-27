@@ -38,31 +38,37 @@
 ## 📁 프로젝트 폴더 구조
 
 ```bash
-📁 burger-inventory-dashboard/
-├── public/
-│   └── index.html              # HTML 템플릿
-├── src/
-│   ├── assets/                 # (이미지 등 정적 리소스 위치 예정)
-│   ├── components/             # 재사용 컴포넌트
-│   │   └── ItemCard.tsx
-│   ├── pages/                  # 각 주요 페이지
-│   │   ├── MainPage.tsx
-│   │   ├── ListPage.tsx
-│   │   ├── DetailPage.tsx
-│   │   ├── CreatePage.tsx
-│   │   ├── MainPage.css
-│   │   ├── ListPage.css
-│   │   ├── DetailPage.css
-│   │   └── CreatePage.css
-│   ├── routes/                 # 라우팅 구성
-│   │   └── AppRouter.tsx
-│   ├── types/                  # TypeScript 타입 정의
-│   │   └── item.ts
-│   ├── App.tsx                 # 최상위 컴포넌트
-│   ├── main.tsx                # 진입 파일
-│   └── index.css               # 전체 스타일 기본값
-├── package.json
-└── README.md
+📁 src/
+├── 📁 assets/               # 이미지, 아이콘 등 정적 리소스
+│   └── logo.svg
+│
+├── 📁 components/           # 재사용 컴포넌트
+│   └── ItemCard.tsx
+│   └── ItemCard.module.css
+│
+├── 📁 pages/                # 각 라우트 단위 페이지
+│   ├── MainPage.tsx
+│   ├── ListPage.tsx
+│   ├── DetailPage.tsx
+│   ├── CreatePage.tsx
+│   ├── MainPage.module.css
+│   ├── ListPage.module.css
+│   ├── DetailPage.module.css
+│   └── CreatePage.module.css
+│
+├── 📁 routes/               # 라우팅 정의
+│   └── AppRouter.tsx
+│
+├── 📁 types/                # 전역 타입 정의
+│   └── item.ts
+│
+├── App.tsx
+├── App.css
+├── index.tsx
+├── index.css
+├── react-app-env.d.ts
+├── reportWebVitals.ts
+└── setupTests.ts
 
 ```
 
