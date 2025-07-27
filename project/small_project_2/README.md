@@ -1,4 +1,4 @@
-# 📌 프로젝트명: 햄버거 재고 관리 대시보드 (Burger Inventory Manager)
+# 📌 프로젝트명: 햄버거 키오스크
 
 > 본 프로젝트는 **React, JavaScript, CSS, HTML**을 기반으로 제작된 SPA 방식의 CRUD 대시보드입니다.  
 > 햄버거 품목의 생성, 조회, 수정, 삭제 기능을 통해 컴포넌트 기반 개발, 상태 관리, 라우팅, 비동기 처리 등 React의 핵심 개념을 실습하며,  
@@ -9,7 +9,7 @@
 ## 📅 프로젝트 기간
 
 - **시작일:** 2025.07.13  
-- **종료일:** 2025.07.27
+- **종료일:** 2025.07.31
 
 ---
 
@@ -27,7 +27,7 @@
 
 | 구분       | 기술 상세                                 |
 |------------|--------------------------------------------|
-| Frontend   | React, JavaScript, HTML, CSS               |
+| Frontend   | React, TypeScript, HTML, CSS               |
 | State Mgmt | useState, useEffect (React Hooks)          |
 | Routing    | React Router DOM                           |
 | Style      | CSS Modules, Flexbox, Grid, Media Query    |
@@ -39,16 +39,31 @@
 
 ```bash
 📁 burger-inventory-dashboard/
-├── public/                    # index.html, 정적 리소스
+├── public/
+│   └── index.html              # HTML 템플릿
 ├── src/
-│   ├── assets/                # 이미지 리소스
-│   ├── components/            # Header, ItemCard, ItemForm, etc.
-│   ├── pages/                 # MainPage, ListPage, DetailPage, CreatePage
-│   ├── routes/                # AppRouter.jsx
-│   ├── App.jsx                # 라우팅 포함한 메인 컴포넌트
-│   └── main.jsx               # 진입 파일
+│   ├── assets/                 # (이미지 등 정적 리소스 위치 예정)
+│   ├── components/             # 재사용 컴포넌트
+│   │   └── ItemCard.tsx
+│   ├── pages/                  # 각 주요 페이지
+│   │   ├── MainPage.tsx
+│   │   ├── ListPage.tsx
+│   │   ├── DetailPage.tsx
+│   │   ├── CreatePage.tsx
+│   │   ├── MainPage.css
+│   │   ├── ListPage.css
+│   │   ├── DetailPage.css
+│   │   └── CreatePage.css
+│   ├── routes/                 # 라우팅 구성
+│   │   └── AppRouter.tsx
+│   ├── types/                  # TypeScript 타입 정의
+│   │   └── item.ts
+│   ├── App.tsx                 # 최상위 컴포넌트
+│   ├── main.tsx                # 진입 파일
+│   └── index.css               # 전체 스타일 기본값
 ├── package.json
 └── README.md
+
 ```
 
 ## ✨ 주요 기능 설명
