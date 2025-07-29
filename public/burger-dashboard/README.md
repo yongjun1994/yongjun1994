@@ -89,10 +89,10 @@
 
 | 주요 기능     | 화면 예시                        |
 |--------------|-------------------------------|
-| 메인 대시보드 | ![main](./image/main.png)     |
-| 전체 목록     | ![list](./image/list.png)     |
-| 상세 보기     | ![detail](./image/detail.png) |
-| 품목 생성     | ![create](./image/create.png) |
+| 메인 대시보드 | ![main](./image/mainPage.jpg)     |
+| 전체 목록     | ![list](./image/listPage.jpg)     |
+| 상세 보기     | ![detail](./image/detailPage.jpg) |
+| 품목 생성     | ![create](./image/createPage.jpg) |
 
 
 ---
