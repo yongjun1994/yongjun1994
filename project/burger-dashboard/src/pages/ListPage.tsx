@@ -6,17 +6,17 @@ import logo from '../assets/logo.png';
 import itemsData from '../data/items.json';
 
 export default function ListPage() {
-  let [items, setItems] = useState<Item[]>([]);
-  let [search, setSearch] = useState('');
-  let [searchParams] = useSearchParams();
-  let navigate = useNavigate();
+  const [items, setItems] = useState<Item[]>([]);
+  const [search, setSearch] = useState('');
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
 useEffect(() => {
   // localStorage에서 불러오고, 없으면 itemsData 사용
-  let raw = localStorage.getItem('items');
-  let list: Item[] = raw ? JSON.parse(raw) : itemsData;
+  const raw = localStorage.getItem('items');
+  const list: Item[] = raw ? JSON.parse(raw) : itemsData;
 
-  let category = searchParams.get('category');
+  const category = searchParams.get('category');
   if (category) {
     setItems(list.filter((i) => i.category === category));
   } else {
@@ -24,7 +24,7 @@ useEffect(() => {
   }
 }, [searchParams]);
 
-  let filtered = items.filter((item) =>
+  const filtered = items.filter((item) =>
     item.name.includes(search)
   );
 
