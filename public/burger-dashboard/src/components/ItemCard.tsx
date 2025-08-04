@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Item } from '../types/item';
 
 export default function ItemCard({ item }: { item: Item }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div

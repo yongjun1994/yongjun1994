@@ -8,10 +8,10 @@ interface CreatePageProps {
 }
 
 export default function CreatePage({ editMode = false }: CreatePageProps) {
-  let { id } = useParams()
-  let navigate = useNavigate()
+  const { id } = useParams()
+  const navigate = useNavigate()
 
-  let [item, setItem] = useState<Item>({
+  const [item, setItem] = useState<Item>({
     id: uuidv4(),
     name: '',
     description: '',
@@ -28,9 +28,9 @@ export default function CreatePage({ editMode = false }: CreatePageProps) {
   // 수정 모드일 경우 기존 데이터 불러오기
   useEffect(() => {
     if (editMode && id) {
-      let rawItems = localStorage.getItem('items')
-      let items: Item[] = rawItems ? JSON.parse(rawItems) : []
-      let found = items.find((i) => i.id === id)
+      const rawItems = localStorage.getItem('items')
+      const items: Item[] = rawItems ? JSON.parse(rawItems) : []
+      const found = items.find((i) => i.id === id)
       if (found) {
         setItem(found)
       }
@@ -38,8 +38,8 @@ export default function CreatePage({ editMode = false }: CreatePageProps) {
   }, [editMode, id])
 
   // 입력 값 변경 핸들러
-  let handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    let { name, value } = e.target
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
 
     if (name === 'price' || name === 'count') {
       setItem((prev) => ({ ...prev, [name]: Number(value) }))
@@ -57,13 +57,13 @@ export default function CreatePage({ editMode = false }: CreatePageProps) {
   }
 
   // 저장 버튼 클릭 시
-  let handleSave = () => {
-    let rawItems = localStorage.getItem('items')
-    let items: Item[] = rawItems ? JSON.parse(rawItems) : []
+  const handleSave = () => {
+    const rawItems = localStorage.getItem('items')
+    const items: Item[] = rawItems ? JSON.parse(rawItems) : []
 
     if (editMode) {
       // 수정
-      let updatedItems = items.map((i) => (i.id === item.id ? item : i))
+      const updatedItems = items.map((i) => (i.id === item.id ? item : i))
       localStorage.setItem('items', JSON.stringify(updatedItems))
     } else {
       // 등록

@@ -4,15 +4,15 @@ import { Item } from '../types/item';
 import logo from '../assets/logo.png';
 
 export default function DetailPage() {
-  let { id } = useParams();
-  let navigate = useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   // 로컬스토리지에서 데이터 가져오기
-  let rawItems = localStorage.getItem('items');
-  let items: Item[] = rawItems ? JSON.parse(rawItems) : [];
+  const rawItems = localStorage.getItem('items');
+  const items: Item[] = rawItems ? JSON.parse(rawItems) : [];
 
   // id로 항목 검색
-  let item = items.find((i) => String(i.id) === id);
+  const item = items.find((i) => String(i.id) === id);
 
   if (!item) {
     return (

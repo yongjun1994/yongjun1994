@@ -7,7 +7,7 @@ import drinkImage from '../assets/drink.png';
 import plusIcon from '../assets/plus-sign.png';
 
 export default function MainPage() {
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col items-center justify-start pt-10 px-4">
