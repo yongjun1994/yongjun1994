@@ -1,3 +1,12 @@
-**/node_modules/*
-.env.*
+# node_modules 전체 무시
+node_modules/
+
+# 모든 .env 파일 무시 (.env, .env.local, .env.development 등 포함)
 .env
+.env.*
+
+# 혹시 다른 하위 폴더에도 있는 .env 파일 무시
+**/.env
+**/.env.*
+
+# ./*/*/.env.*
