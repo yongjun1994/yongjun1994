@@ -1,110 +1,168 @@
-# CORS 정책과 웹 보안 기본 개념
+# CORS 정책과 웹 보안 기본 개념 — 심화 설명
 
-## 1. 웹 보안의 시작: 동일 출처 정책 (Same-Origin Policy, SOP)
+## 1. 동일 출처 정책(Same-Origin Policy, SOP)
 
-웹 보안의 가장 기본적인 원칙 중 하나는 **동일 출처 정책 (Same-Origin Policy, SOP)**입니다. 이 정책은 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처의 리소스와 상호작용하는 것을 제한하는 브라우저의 보안 메커니즘입니다. 악의적인 웹사이트가 사용자의 다른 웹사이트 세션에서 정보를 탈취하는 것을 방지하기 위해 만들어졌습니다.
+### 1-1. 등장 배경
+웹 기술 발전으로 브라우저에서 다른 사이트의 데이터나 세션 정보를 훔치는 공격(XSS, CSRF 등)이 등장.
+이를 막기 위해 **SOP**가 도입됨.
 
-### 출처(Origin)란?
-
-**출처(Origin)**는 다음 세 가지 요소의 조합으로 정의됩니다.
-
-* **프로토콜 (Scheme):** `http`, `https://` 등
-* **호스트 (Host):** `google.com`, `example.com` 등
-* **포트 (Port):** `80`, `443`, `3000` 등
-
-이 세 가지가 모두 같아야 **동일 출처**로 인정됩니다. 예를 들어, `http://example.com:80` 과 `https://example.com:80`은 프로토콜이 다르기 때문에 다른 출처로 간주됩니다.
-
-| URL                               | 다른 URL                        | 동일 출처 여부 | 이유                               |
-| --------------------------------- | ------------------------------- | -------------- | ---------------------------------- |
-| `http://example.com/app/index.html` | `http://example.com/app2/main.html` | O              | 프로토콜, 호스트, 포트(기본값 80) 동일 |
-| `http://example.com`              | `https://example.com`           | X              | 프로토콜 불일치                    |
-| `http://example.com`              | `http://www.example.com`        | X              | 호스트 불일치                      |
-| `http://example.com`              | `http://example.com:8080`       | X              | 포트 불일치                        |
-
-
+**목표**
+- 악성 스크립트가 사용자의 인증 정보를 탈취하지 못하게 방지
+- 브라우저가 서로 다른 출처 간의 직접 데이터 접근을 제한
 
 ---
 
-## 2. 교차 출처 리소스 공유 (Cross-Origin Resource Sharing, CORS)
+### 1-2. Origin(출처)의 구성
+출처는 **프로토콜 + 호스트 + 포트**가 모두 같아야 동일 출처.
 
-SOP는 보안에 필수적이지만, 현대 웹 애플리케이션에서는 다른 출처의 리소스(예: API, 폰트, 이미지)를 합법적으로 요청해야 하는 경우가 많습니다. 이러한 필요성에 따라 등장한 것이 **교차 출처 리소스 공유(CORS)**입니다.
+| 요소 | 설명 | 예시 |
+|------|------|------|
+| 프로토콜 | 데이터 전송 방식 | `https://` |
+| 호스트 | 도메인 또는 IP | `example.com` |
+| 포트 | 서비스 수신 대기 포트 | `:3000` |
 
-CORS는 서버가 특정 출처의 웹 페이지에 자신의 리소스를 불러갈 수 있도록 허용하는 **HTTP 헤더 기반 메커니즘**입니다. 즉, SOP라는 엄격한 규칙에 대한 예외를 허용하는 정책입니다. 브라우저는 서버가 보낸 CORS 관련 HTTP 헤더를 확인하여, 해당 교차 출처 요청이 안전한지 판단하고 리소스 접근을 허용하거나 차단합니다.
-
-**핵심:** CORS 정책은 **서버**에서 설정하지만, 정책의 시행 주체는 **브라우저**입니다.
+기본 포트: HTTP=80, HTTPS=443
 
 ---
 
-## 3. CORS의 작동 방식: HTTP 헤더 (Headers)
+### 1-3. 동일 출처 여부 예시
 
-CORS는 특정 HTTP 헤더를 통해 작동합니다. 이 헤더들은 클라이언트(브라우저)의 요청과 서버의 응답에 포함되어 교차 출처 통신의 허용 여부를 결정합니다.
+| URL A | URL B | 동일 출처 여부 | 다른 이유 |
+|-------|-------|----------------|-----------|
+| `http://example.com:80` | `http://example.com` | ✅ | 기본 포트 동일 |
+| `http://example.com` | `https://example.com` | ❌ | 프로토콜 다름 |
+| `http://example.com` | `http://www.example.com` | ❌ | 호스트 다름 |
+| `http://example.com` | `http://example.com:8080` | ❌ | 포트 다름 |
 
-### 요청 헤더 (Request Headers)
+---
 
-브라우저가 다른 출처로 리소스를 요청할 때, 다음과 같은 헤더를 자동으로 추가합니다.
+## 2. CORS (Cross-Origin Resource Sharing)
 
-* `Origin`: 요청을 시작한 출처를 나타냅니다.
-    * 예: `Origin: https://my-awesome-app.com`
+### 2-1. 필요성
+SPA, API 기반 서비스, 마이크로서비스 구조에서 서로 다른 출처 간 요청 필요.
 
-### 응답 헤더 (Response Headers)
+예:
+```
+프론트엔드: http://localhost:3000
+백엔드 API: http://localhost:5000
+```
 
-서버는 브라우저의 요청에 대한 응답으로 다음과 같은 헤더를 포함하여 CORS 정책을 전달합니다.
+SOP: 차단 / CORS: 예외 허용
 
-* `Access-Control-Allow-Origin`: 리소스에 접근할 수 있도록 허용된 출처를 명시합니다.
-    * 예: `Access-Control-Allow-Origin: https://my-awesome-app.com`
-    * `*` 와일드카드를 사용하면 모든 출처의 접근을 허용하지만, 보안상 권장되지 않습니다.
-* `Access-Control-Allow-Methods`: 허용되는 HTTP 메서드를 지정합니다.
-    * 예: `Access-Control-Allow-Methods: GET, POST, PUT, DELETE`
-* `Access-Control-Allow-Headers`: 요청에 사용될 수 있는 커스텀 헤더를 지정합니다.
-    * 예: `Access-Control-Allow-Headers: Content-Type, Authorization`
-* `Access-Control-Allow-Credentials`: 자격 증명(쿠키, 인증 헤더 등)을 포함한 요청을 허용할지 여부를 나타냅니다. 이 값이 `true`일 경우, `Access-Control-Allow-Origin` 헤더에 `*`를 사용할 수 없습니다.
+### 2-2. 작동 원리
+1. 브라우저가 Origin 헤더를 요청에 자동 추가
+2. 서버가 CORS 응답 헤더를 반환
+3. 브라우저가 검증 후 허용/차단
+
+⚠ CORS는 브라우저만 검사, 서버-서버 요청(Postman, curl)은 적용 안 됨.
+
+---
+
+## 3. 주요 CORS 응답 헤더
+
+| 헤더 이름 | 설명 | 예시 |
+|-----------|------|------|
+| `Access-Control-Allow-Origin` | 허용 Origin 지정 | `https://myapp.com` |
+| `Access-Control-Allow-Methods` | 허용 HTTP 메서드 | `GET, POST, PUT, DELETE` |
+| `Access-Control-Allow-Headers` | 허용 요청 헤더 | `Content-Type, Authorization` |
+| `Access-Control-Allow-Credentials` | 쿠키·인증정보 포함 여부 | `true` |
+| `Access-Control-Max-Age` | 프리플라이트 캐싱 시간(초) | `86400` |
 
 ---
 
 ## 4. 프리플라이트 요청 (Preflight Request)
 
-모든 교차 출처 요청이 즉시 실행되는 것은 아닙니다. 브라우저는 실제 요청을 보내기 전에 **프리플라이트 요청(Preflight Request)**이라는 예비 요청을 먼저 보내 서버가 해당 요청을 수락할지 확인하는 경우가 있습니다. 이는 서버에 영향을 줄 수 있는 "복잡한" 요청 (예: `DELETE`, `PUT` 메서드 또는 특정 `Content-Type`을 사용하는 요청)에 대해 수행됩니다.
+### 4-1. 발생 조건
+**단순 요청**이 아닌 경우 OPTIONS 요청 선행.
 
-프리플라이트 요청은 `OPTIONS` HTTP 메서드를 사용하며, 실제 요청에 사용될 메서드와 헤더 정보를 서버에 미리 알립니다.
+단순 요청 조건:
+- 메서드: GET/POST/HEAD
+- Content-Type: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`
+- 커스텀 헤더 없음
 
-### 프리플라이트 요청의 흐름
+### 4-2. 흐름 예시
 
-1.  **브라우저의 예비 요청 (OPTIONS):**
-    * 브라우저는 실제 요청을 보내기 전에 `OPTIONS` 메서드로 프리플라이트 요청을 보냅니다.
-    * 이 요청에는 `Access-Control-Request-Method` (실제 요청의 메서드)와 `Access-Control-Request-Headers` (실제 요청에 포함될 헤더)가 포함됩니다.
+1. OPTIONS 예비 요청
+```http
+OPTIONS /api/users/123 HTTP/1.1
+Origin: http://localhost:3000
+Access-Control-Request-Method: DELETE
+Access-Control-Request-Headers: Authorization
+```
 
-    ```http
-    OPTIONS /api/users/123 HTTP/1.1
-    Host: api.example.com
-    Origin: [https://my-awesome-app.com](https://my-awesome-app.com)
-    Access-Control-Request-Method: DELETE
-    Access-Control-Request-Headers: Authorization
-    ```
+2. 서버 응답
+```http
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: http://localhost:3000
+Access-Control-Allow-Methods: GET, POST, DELETE
+Access-Control-Allow-Headers: Authorization
+Access-Control-Max-Age: 86400
+```
 
-2.  **서버의 응답:**
-    * 서버는 프리플라이트 요청을 받고, 해당 교차 출처 요청을 허용할 것인지 CORS 관련 헤더를 통해 응답합니다.
+3. 실제 요청
+```http
+DELETE /api/users/123 HTTP/1.1
+Origin: http://localhost:3000
+Authorization: Bearer token123
+```
 
-    ```http
-    HTTP/1.1 204 No Content
-    Access-Control-Allow-Origin: [https://my-awesome-app.com](https://my-awesome-app.com)
-    Access-Control-Allow-Methods: GET, POST, DELETE
-    Access-Control-Allow-Headers: Authorization
-    Access-Control-Max-Age: 86400
-    ```
+---
 
-3.  **브라우저의 판단 및 실제 요청:**
-    * 브라우저는 서버의 응답 헤더를 보고 실제 요청(`DELETE`)이 허용되는지 확인합니다.
-    * 허용된다면, 브라우저는 이제 실제 `DELETE` 요청을 서버로 보냅니다.
-    * 만약 서버가 허용하지 않는다는 응답을 보내면, 브라우저는 실제 요청을 보내지 않고 콘솔에 CORS 에러를 출력합니다.
+## 5. 보안 고려 사항
+- `*` 와일드카드 남발 금지
+- Origin 화이트리스트 관리
+- 민감 데이터는 서버-서버 통신
+- HTTPS 사용 권장
 
+---
 
+## 6. 개발 시 해결 방법
 
-이처럼 프리플라이트 요청은 실제 데이터 전송 전에 안전하게 통신 가능 여부를 확인하는 중요한 보안 절차입니다.
+1. 서버에서 허용 헤더 설정 (Express 예시)
+```js
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://myapp.com',
+  methods: ['GET','POST','DELETE'],
+  credentials: true
+}));
+```
 
-## 요약
+2. 프록시 사용 (React 예시)
+```json
+"proxy": "http://localhost:5000"
+```
 
-* **SOP (동일 출처 정책):** 웹 보안의 기본. 다른 출처의 리소스 접근을 기본적으로 차단.
-* **Origin (출처):** 프로토콜, 호스트, 포트의 조합.
-* **CORS (교차 출처 리소스 공유):** SOP에 대한 예외를 설정하는 메커니즘. 서버가 HTTP 헤더를 통해 다른 출처의 접근을 허용.
-* **Header (헤더):** CORS 정책을 전달하는 핵심 수단. `Access-Control-Allow-Origin` 등이 사용됨.
-* **Preflight Request (프리플라이트 요청):** 실제 요청 전 `OPTIONS` 메서드로 보내는 예비 요청. 서버가 복잡한 교차 출처 요청을 수락할지 미리 확인하는 과정.
+3. API Gateway, Nginx 활용
+
+---
+
+## 🔍 CORS 에러 디버깅 체크리스트
+
+1. 콘솔 에러 메시지 확인
+2. 요청 Origin과 응답 Origin 비교
+3. 서버 CORS 설정 점검
+4. 프리플라이트 응답 허용 여부 확인
+5. 개발 환경 프록시 설정 확인
+6. 운영 환경 리버스 프록시(Nginx 등) 설정 점검
+7. 서버-서버 요청 여부 확인
+8. 민감 정보 전송 시 보안 정책 점검
+
+---
+
+## 9. CORS 흐름 시퀀스 (텍스트)
+
+```
+[JS 실행] → [브라우저 Origin 검사] → 
+   ├─ 단순 요청 → 서버 응답 → Origin 허용? → 데이터 표시
+   └─ 복잡 요청 → OPTIONS → 서버 허용 → 실제 요청 → 데이터 표시
+```
+
+---
+
+## 10. CORS 시퀀스 다이어그램
+
+(브라우저와 서버 간 요청-응답 흐름을 시각화한 이미지 포함)
+
+![CORS Flow Example](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*UGFbPL1mB8bD38mZ.png)
+
