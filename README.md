@@ -1,4 +1,4 @@
-# 👋 Hi there, I'm Yong Jun Lee!
+# 👋 Hi there, I'm Yong Jun Lee! 
 ## 🚀 I am a **Aspiring Full-stack Web Developer**.
 💡 안녕하세요. ⭐데이터 기반 문제 해결력⭐과 실전형 프로젝트 경험을 갖춘, ⭐글로벌 감각의 미래형 풀스택 개발자⭐ 입니다.
 
