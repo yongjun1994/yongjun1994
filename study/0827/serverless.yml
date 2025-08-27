@@ -1,0 +1,65 @@
+service: text-blog-service
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-2
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: arn:aws:dynamodb:ap-northeast-2:654654611599:table/BlogPosts0827
+
+functions:
+  createPost:
+    handler: create.handler
+    events:
+      - http:
+          path: posts
+          method: post
+
+  getPost:
+    handler: get.handler
+    events:
+      - http:
+          path: posts/{id}
+          method: get
+
+  listPosts:
+    handler: list.handler
+    events:
+      - http:
+          path: posts
+          method: get
+
+  updatePost:
+    handler: update.handler
+    events:
+      - http:
+          path: posts/{id}
+          method: put
+
+  deletePost:
+    handler: delete.handler
+    events:
+      - http:
+          path: posts/{id}
+          method: delete
+
+resources:
+  Resources:
+    BlogPostsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: BlogPosts0827
+        AttributeDefinitions:
+          - AttributeName: postId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: postId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST

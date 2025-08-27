@@ -1,0 +1,202 @@
+{
+  "D:\\GenAI_lyj\\git_workspace\\yongjun1994\\study\\0827\\serverless.yml": {
+    "versionFramework": "4.18.2",
+    "servicePath": "D:\\GenAI_lyj\\git_workspace\\yongjun1994\\study\\0827\\serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "text-blog-service",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "region": "ap-northeast-2",
+        "iamRoleStatements": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "dynamodb:Scan",
+              "dynamodb:GetItem",
+              "dynamodb:PutItem",
+              "dynamodb:UpdateItem",
+              "dynamodb:DeleteItem"
+            ],
+            "Resource": "arn:aws:dynamodb:ap-northeast-2:654654611599:table/BlogPosts0827"
+          }
+        ],
+        "stage": "dev",
+        "versionFunctions": true
+      },
+      "functions": {
+        "createPost": {
+          "handler": "create.handler",
+          "events": [
+            {
+              "http": {
+                "path": "posts",
+                "method": "post"
+              }
+            }
+          ],
+          "name": "text-blog-service-dev-createPost"
+        },
+        "getPost": {
+          "handler": "get.handler",
+          "events": [
+            {
+              "http": {
+                "path": "posts/{id}",
+                "method": "get"
+              }
+            }
+          ],
+          "name": "text-blog-service-dev-getPost"
+        },
+        "listPosts": {
+          "handler": "list.handler",
+          "events": [
+            {
+              "http": {
+                "path": "posts",
+                "method": "get"
+              }
+            }
+          ],
+          "name": "text-blog-service-dev-listPosts"
+        },
+        "updatePost": {
+          "handler": "update.handler",
+          "events": [
+            {
+              "http": {
+                "path": "posts/{id}",
+                "method": "put"
+              }
+            }
+          ],
+          "name": "text-blog-service-dev-updatePost"
+        },
+        "deletePost": {
+          "handler": "delete.handler",
+          "events": [
+            {
+              "http": {
+                "path": "posts/{id}",
+                "method": "delete"
+              }
+            }
+          ],
+          "name": "text-blog-service-dev-deletePost"
+        }
+      },
+      "resources": {
+        "Resources": {
+          "BlogPostsTable": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+              "TableName": "BlogPosts0827",
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "postId",
+                  "AttributeType": "S"
+                }
+              ],
+              "KeySchema": [
+                {
+                  "AttributeName": "postId",
+                  "KeyType": "HASH"
+                }
+              ],
+              "BillingMode": "PAY_PER_REQUEST"
+            }
+          }
+        }
+      }
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs18.x",
+      "region": "ap-northeast-2",
+      "iamRoleStatements": [
+        {
+          "Effect": "Allow",
+          "Action": [
+            "dynamodb:Scan",
+            "dynamodb:GetItem",
+            "dynamodb:PutItem",
+            "dynamodb:UpdateItem",
+            "dynamodb:DeleteItem"
+          ],
+          "Resource": "arn:aws:dynamodb:ap-northeast-2:654654611599:table/BlogPosts0827"
+        }
+      ],
+      "stage": "dev",
+      "versionFunctions": true
+    },
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "serviceRawFile": "service: text-blog-service\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: ap-northeast-2\r\n  iamRoleStatements:\r\n    - Effect: \"Allow\"\r\n      Action:\r\n        - dynamodb:Scan\r\n        - dynamodb:GetItem\r\n        - dynamodb:PutItem\r\n        - dynamodb:UpdateItem\r\n        - dynamodb:DeleteItem\r\n      Resource: arn:aws:dynamodb:ap-northeast-2:654654611599:table/BlogPosts0827\r\n\r\nfunctions:\r\n  createPost:\r\n    handler: create.handler\r\n    events:\r\n      - http:\r\n          path: posts\r\n          method: post\r\n\r\n  getPost:\r\n    handler: get.handler\r\n    events:\r\n      - http:\r\n          path: posts/{id}\r\n          method: get\r\n\r\n  listPosts:\r\n    handler: list.handler\r\n    events:\r\n      - http:\r\n          path: posts\r\n          method: get\r\n\r\n  updatePost:\r\n    handler: update.handler\r\n    events:\r\n      - http:\r\n          path: posts/{id}\r\n          method: put\r\n\r\n  deletePost:\r\n    handler: delete.handler\r\n    events:\r\n      - http:\r\n          path: posts/{id}\r\n          method: delete\r\n\r\nresources:\r\n  Resources:\r\n    BlogPostsTable:\r\n      Type: AWS::DynamoDB::Table\r\n      Properties:\r\n        TableName: BlogPosts0827\r\n        AttributeDefinitions:\r\n          - AttributeName: postId\r\n            AttributeType: S\r\n        KeySchema:\r\n          - AttributeName: postId\r\n            KeyType: HASH\r\n        BillingMode: PAY_PER_REQUEST\r\n",
+    "command": [
+      "info"
+    ],
+    "options": {},
+    "orgId": "e65057b5-10db-4a03-9bb2-e8b388085cde",
+    "orgName": "students14",
+    "userId": "lSctF0BSnSRTJcs8nQ",
+    "userName": "students14",
+    "serviceProviderAwsAccountId": "654654611599",
+    "serviceProviderAwsCfStackName": "text-blog-service-dev",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:ap-northeast-2:654654611599:stack/text-blog-service-dev/88983ed0-82f6-11f0-818a-02d0ecd7ce45",
+    "serviceProviderAwsCfStackCreated": "2025-08-27T03:33:01.456Z",
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": "CREATE_COMPLETE",
+    "serviceProviderAwsCfStackOutputs": [
+      {
+        "OutputKey": "CreatePostLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:ap-northeast-2:654654611599:function:text-blog-service-dev-createPost:6",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-text-blog-service-dev-CreatePostLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "DeletePostLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:ap-northeast-2:654654611599:function:text-blog-service-dev-deletePost:6",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-text-blog-service-dev-DeletePostLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "ListPostsLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:ap-northeast-2:654654611599:function:text-blog-service-dev-listPosts:6",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-text-blog-service-dev-ListPostsLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "UpdatePostLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:ap-northeast-2:654654611599:function:text-blog-service-dev-updatePost:6",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-text-blog-service-dev-UpdatePostLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "GetPostLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:ap-northeast-2:654654611599:function:text-blog-service-dev-getPost:6",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-text-blog-service-dev-GetPostLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "ServiceEndpoint",
+        "OutputValue": "https://xo3gawjn1j.execute-api.ap-northeast-2.amazonaws.com/dev",
+        "Description": "URL of the service endpoint",
+        "ExportName": "sls-text-blog-service-dev-ServiceEndpoint"
+      },
+      {
+        "OutputKey": "ServerlessDeploymentBucketName",
+        "OutputValue": "serverless-framework-deployments-ap-northeast-2-511e10df-e2ad",
+        "ExportName": "sls-text-blog-service-dev-ServerlessDeploymentBucketName"
+      }
+    ]
+  }
+}
