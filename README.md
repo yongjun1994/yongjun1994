@@ -106,7 +106,7 @@
 - 머신러닝 기초 교육 수료  
 
  
-## 자격 및 활동
+## 🧑‍💻 자격 및 활동
 
 - 정보처리기사 필기합격 / 실기 준비 중
 - AWS Cloud Practitioner 자격 취득
@@ -116,7 +116,7 @@
 - HRDI AI활용능력 2급 / 빅데이터분석 실무 2급 / 식스시그마 그린벨트
 
 
-## 기술 스택
+## 🧑‍💻 기술 스택
 
 ### 언어
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
