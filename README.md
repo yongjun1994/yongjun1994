@@ -1,6 +1,60 @@
-# 👋 Hi there, I'm Yong Jun Lee! 
+# 🚀 Welcome to my GitHub! I'm Michael, a passionate Web Developer.
 ## 🚀 I am a **Aspiring Full-stack Web Developer**.
-💡 안녕하세요. ⭐데이터 기반 문제 해결력⭐과 실전형 프로젝트 경험을 갖춘, ⭐글로벌 감각의 미래형 풀스택 개발자⭐ 입니다.
+
+🚀 **Full-stack Web Developer** | 🌏 Interested in AI · Data · Cloud  
+✨ Passionate about building **scalable backend systems** and **intuitive frontend experiences**
+
+---
+
+## 💡 About Me
+- 🎓 Industrial Engineering → AI & Software Engineering 전공 (Career Shift)  
+- 🌱 Currently working on **K-Mate** (K-Mate: A Travel Guide Platform for International Tourists in Korea)  
+- 🔍 Exploring **NestJS, TypeORM, MySQL** for backend & **React, Next.js, TailwindCSS** for frontend  
+- 🏆 Certifications: **AWS Cloud Practitioner**, **정보처리기사(필기 합격, 실기 준비 중)**  
+- 💬 I enjoy sharing what I learn on my [Tech Blog](https://github.com/yongjun1994)  
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend**  
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) 
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) 
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) 
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)  
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) 
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white) 
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)  
+
+**Backend**  
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white) 
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=nestjs&logoColor=white) 
+![TypeORM](https://img.shields.io/badge/TypeORM-FF8C00?style=flat&logo=typeorm&logoColor=white) 
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)  
+
+**Tools & Cloud**  
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazonaws&logoColor=white) 
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) 
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)  
+
+---
+
+## 📌 Featured Projects
+- 🗺️ **K-Mate** – 외국인 관광객을 위한 한국 여행 안내 플랫폼  
+  - Backend: NestJS + TypeORM + MySQL  
+  - Frontend: React + TailwindCSS  
+  - [👉 Repository](https://github.com/yongjun1994/K-Mate)  
+
+- 🍔 **Burger Dashboard** – React + TypeScript 기반 햄버거 키오스크 SPA  
+  - 로컬스토리지 기반 CRUD 구현  
+  - [👉 Repository](https://github.com/yongjun1994/burger-inventory-dashboard)  
+
+---
+✨ _“Code with purpose, design with empathy, and always keep learning.”_
+---
+
+
+💡 안녕하세요. ⭐데이터 기반 문제 해결력⭐과 실전형 프로젝트 경험을 갖춘, ⭐글로벌 감각의 미래형 풀스택 개발자 이용준⭐ 입니다.
 
 > 프론트엔드 개발자 및 백엔드 개발자 그리고 클라우드 및 소프트웨어 아키텍트가 되고 싶습니다.
 
