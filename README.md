@@ -1,7 +1,7 @@
 # 🚀 Welcome to my GitHub! I'm Michael, a passionate Web Developer.
 ## 🚀 I am a **Aspiring Full-stack Web Developer**.
 
-🚀 **Full-stack Web Developer** | 🌏 Interested in AI · Data · Cloud  
+🌏 Interested in AI · Data · Cloud  
 ✨ Passionate about building **scalable backend systems** and **intuitive frontend experiences**
 
 ---
@@ -43,14 +43,13 @@
 - 🗺️ **K-Mate** – 외국인 관광객을 위한 한국 여행 안내 플랫폼  
   - Backend: NestJS + TypeORM + MySQL  
   - Frontend: React + TailwindCSS  
-  - [👉 Repository](https://github.com/yongjun1994/K-Mate)  
 
 - 🍔 **Burger Dashboard** – React + TypeScript 기반 햄버거 키오스크 SPA  
   - 로컬스토리지 기반 CRUD 구현  
-  - [👉 Repository](https://github.com/yongjun1994/burger-inventory-dashboard)  
 
 ---
 ✨ _“Code with purpose, design with empathy, and always keep learning.”_
+
 ---
 
 
@@ -60,11 +59,13 @@
 
 ## 🧑‍💻 경력
 
-### 강남구 혁신인재육성 아카데미 GenAI 기반 웹 서비스 개발 전문가 양성과정 수료 (2025.6 - 2025.9) (4개월)  
+### 강남구 혁신인재육성 아카데미 GenAI 기반 웹 서비스 개발 전문가 양성과정 수료 (2025.6 - 2025.9) (4개월) 
+
 - **습득 기술**: HTML, CSS, JavaScript, TypeScript, React, Next.js, TailwindCSS, Node.js, NestJS, TypeORM, MySQL  
 - **개인 프로젝트**  
   - 반응형 포트폴리오 웹페이지 구축  
-  - React + TailwindCSS 기반 햄버거 메뉴 대시보드 구현  
+  - React + TailwindCSS 기반 햄버거 메뉴 대시보드 구현
+    
 - **팀 프로젝트: K-Mate (외국인 대상 한국 여행 안내 플랫폼)**  
   - 커뮤니티 페이지(K-Buzz) 및 마이페이지 서버 구축  
   - Swagger 기반 API 테스트 및 문서화  
@@ -75,13 +76,16 @@
 ---
 
 ### 신한DS 금융SW 아카데미 풀스택 개발자 양성과정 3기 수료 (2024.3 - 2024.9) (6개월)  
+
 - **올림픽 티켓 예매 사이트 구축**  
   - 데이터 전처리 및 MongoDB 기반 DB 설계  
   - Spring 기반 티켓 예매 기능 구현  
-  - 팀 기여도: 30%  
+  - 팀 기여도: 30%
+    
 - **AI 기반 카드 추천 및 결제 시스템 구축**  
   - 신용카드 정보 기반 DB 구축 및 React 기반 판매자 페이지 UI 구현   
-  - 팀 기여도: 35%  
+  - 팀 기여도: 35%
+    
 - **올림픽 경기 및 경기장 안내 챗봇 (사이드 프로젝트)**  
   - Python 기반 챗봇 구현  
   - Fine-tuning 및 Function Calling 기반 OpenAI 모델 연동  
@@ -89,6 +93,7 @@
 ---
 
 ### 빅데이터 분석 학회 (2023.9 - 2024.3) (7개월)  
+
 - 수도권 광역버스 노선, 전기차 충전소 설치 프로젝트  
   - 지도 시각화 등 시각화 라이브러리 활용  
   - 데이터 파이프라인 설계 및 시각화 담당  
@@ -161,17 +166,17 @@
 
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=yongjun1994&theme=radical)
 
-## 📝 기술 블로그
+## 📝 Tech Blog
 
 [![Blog](https://img.shields.io/badge/-Blog-03C75A?style=flat-square&logo=naver&logoColor=white)](https://blog.naver.com/colabdiary)
 
-##  방문자 카운터
+##  Visitor Count
 
 ![Visitor Count](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/yongjun1994&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=visits&edge_flat=false)
 
 
 
-## 📫 연락하기
+## 📫 Contact
 
 [![Email](https://img.shields.io/badge/-Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:iyongjun089@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yongjunlee-b8a49924b)
