@@ -11,7 +11,7 @@
 - 🌱 Currently working on **K-Mate** (K-Mate: A Travel Guide Platform for International Tourists in Korea)  
 - 🔍 Exploring **NestJS, TypeORM, MySQL** for backend & **React, Next.js, TailwindCSS** for frontend  
 - 🏆 Certifications: **AWS Cloud Practitioner**, **Engineer Information Processing(Korea’s national IT engineer certification) – Written Exam Passed, Practical Exam in Progress**  
-- 💬 I enjoy sharing what I learn on my [Tech Blog](https://github.com/yongjun1994)  
+- 💬 I enjoy sharing what I learn on my [Tech Blog](https://blog.naver.com/colabdiary)
 
 ---
 
