@@ -7,10 +7,10 @@
 ---
 
 ## 💡 About Me
-- 🎓 Industrial Engineering → AI & Software Engineering 전공 (Career Shift)  
+- 🎓 Industrial Engineering → AI & Software Engineering Major (Career Shift)  
 - 🌱 Currently working on **K-Mate** (K-Mate: A Travel Guide Platform for International Tourists in Korea)  
 - 🔍 Exploring **NestJS, TypeORM, MySQL** for backend & **React, Next.js, TailwindCSS** for frontend  
-- 🏆 Certifications: **AWS Cloud Practitioner**, **정보처리기사(필기 합격, 실기 준비 중)**  
+- 🏆 Certifications: **AWS Cloud Practitioner**, **Engineer Information Processing(Korea’s national IT engineer certification) – Written Exam Passed, Practical Exam in Progress**  
 - 💬 I enjoy sharing what I learn on my [Tech Blog](https://github.com/yongjun1994)  
 
 ---
@@ -59,7 +59,7 @@
 
 ## 🧑‍💻 경력
 
-### 📌 강남구 혁신인재육성 아카데미 GenAI 기반 웹 서비스 개발 전문가 양성과정 수료 (2025.6 - 2025.9) (4개월) 
+### 📌 강남구 혁신인재육성 아카데미 GenAI 기반 웹 서비스 개발 전문가 양성과정 이수중 (2025.6 - 2025.9) (4개월) 
 
 - **습득 기술**: HTML, CSS, JavaScript, TypeScript, React, Next.js, TailwindCSS, Node.js, NestJS, TypeORM, MySQL  
 - **개인 프로젝트**  
