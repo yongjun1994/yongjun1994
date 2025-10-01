@@ -59,7 +59,7 @@
 
 ## 🧑‍💻 경력
 
-### 📌 강남구 혁신인재육성 아카데미 GenAI 기반 웹 서비스 개발 전문가 양성과정 이수중 (2025.6 - 2025.9) (4개월) 
+### 📌 강남구 혁신인재육성 아카데미 GenAI 기반 웹 서비스 개발 전문가 양성과정 수료 (2025.6 - 2025.9) (4개월) 
 
 - **습득 기술**: HTML, CSS, JavaScript, TypeScript, React, Next.js, TailwindCSS, Node.js, NestJS, TypeORM, MySQL  
 - **개인 프로젝트**  
